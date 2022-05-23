@@ -16,7 +16,7 @@ source zsh-snap/install.zsh
 ## install ohmyzsh via zsh-snap. start
 ##  install ohmyzsh outside zsh-snap may cause compatibility issues between ohmyzsh and zsh-snap. 
 znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
-znap prompt ohmyzsh/ohmyzsh ramdon
+znap prompt ohmyzsh/ohmyzsh random
 ## echo 'znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}' >>~/.zshrc
 ## Path to your oh-my-zsh installation.
 echo 'export ZSH="$HOME/zsh-snap/ohmyzsh" ' >>~/.zshrc
