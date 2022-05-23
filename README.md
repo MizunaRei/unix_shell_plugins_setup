@@ -1,5 +1,5 @@
 # zsh-plugin-setup
- plugins and dot files installer for Z shell. This script includes ,
+ plugins and dot files installer for Z shell. Requires Zsh 5.7.1 or newer and Git 2.8 or newer. This script includes,
 
     https://github.com/marlonrichert/zsh-snap
     https://github.com/marlonrichert/zsh-autocomplete
