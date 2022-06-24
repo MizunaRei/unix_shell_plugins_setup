@@ -1,10 +1,13 @@
 # zsh-plugin-setup
- Z shell plugins installer. It requires Zsh 5.7.1 or newer and Git 2.8 or newer. This script includes the following plugins.
+ Z shell plugins installer. It requires Zsh 5.7.1 or newer and Git 2.8 or newer and cURL. This script includes the following plugins.
 
     https://github.com/marlonrichert/zsh-snap
     https://github.com/marlonrichert/zsh-autocomplete
     https://github.com/ohmyzsh/ohmyzsh
     https://github.com/romkatv/powerlevel10k
+
+### Installation
+`curl https://github.com/MoonLightElf/zsh-plugin-setup/raw/main/zsh-plugin-setup.sh | zsh`
 
 ### Why do we use these zsh plugins?
 Zsh is mainly compatible with bash. One of the compatibility issues we know is that bash supports wild char in commands. For example, "apt install compiz*". Zsh does not. 
