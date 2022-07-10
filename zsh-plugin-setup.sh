@@ -7,12 +7,17 @@ last_working_directory=$PWD
 cd ~
 
 
+curl -o zshrc-default  -sL https://github.com/MoonLightElf/zsh-plugin-setup/raw/main/zshrc-default
+cat zshrc-default >> .zshrc
+rm zshrc-default
+
+
 ## install marlonrichert/zsh-snap . start
 echo " \n \n Please keep the default installation directory unless you know what you are doing. \n \n"
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/zsh-snap/zsh-snap
 chmod +x ~/zsh-snap/zsh-snap/znap.zsh
 source ~/zsh-snap/zsh-snap/znap.zsh
-echo 'source ~/zsh-snap/zsh-snap/znap.zsh'>>~/.zshrc
+## echo 'source ~/zsh-snap/zsh-snap/znap.zsh'>>~/.zshrc
 ## install marlonrichert/zsh-snap . EOF
 
 
@@ -20,9 +25,9 @@ echo 'source ~/zsh-snap/zsh-snap/znap.zsh'>>~/.zshrc
 ## Install ohmyzsh outside zsh-snap may cause compatibility issues between ohmyzsh and zsh-snap. 
 ## Use this command to execute desired plugins of ohmyzsh.
 znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
-echo 'znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}' >>~/.zshrc
+## echo 'znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}' >>~/.zshrc
 ## Path to your oh-my-zsh installation.
-echo 'export ZSH="$HOME/zsh-snap/ohmyzsh" ' >>~/.zshrc
+## echo 'export ZSH="$HOME/zsh-snap/ohmyzsh" ' >>~/.zshrc
 ## install ohmyzsh via zsh-snap. EOF
 
 
@@ -45,7 +50,7 @@ echo "        znap prompt ohmyzsh/ohmyzsh random"
 
 ## install marlonrichert/zsh-autocomplete for fish like autosuggestion
 znap source marlonrichert/zsh-autocomplete
-echo 'znap source marlonrichert/zsh-autocomplete' >>~/.zshrc
+## echo 'znap source marlonrichert/zsh-autocomplete' >>~/.zshrc
 
 
 cd $last_working_directory
