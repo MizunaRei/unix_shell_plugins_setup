@@ -1,53 +1,63 @@
 #!/usr/bin/env bash
 
 
+## global variables
 shell_requirements=="make gawk curl git"
 unix_shell_contraction=="a"
 unix_shell_name="bash fish zsh"
 
 
+
 function main(){
+## same as main() function in C language
 
 ## save user's current working directory
 last_working_directory=$PWD
 ## go to user home directory for default setup.
 cd ~
 
-	read -p " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n " unix_shell_contraction
+## choose unix shells to setup
+read -p " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "  -n 1 -r unix_shell_contraction
+echo
 if
-	unix_shell_contraction==[aA]
+	[[ $unix_shell_contraction =~ ^[Aa]$ ]]
+	
 	then
 	 unix_shell_name="bash fish zsh"
 fi
 
 if
-	unix_shell_contraction==[bB]
+	[[ $unix_shell_contraction =~ ^[Bb]$ ]]
 	then
 	 unix_shell_name="bash"
 fi
 
 if
-	unix_shell_contraction==[fF]
+	[[ $unix_shell_contraction =~ ^[Ff]$ ]]
 	then 
 	unix_shell_name="fish"
 fi
 
 if
-	unix_shell_contraction==[zZ]
+	[[ $unix_shell_contraction =~ ^[Zz]$ ]]
 	then 
 	unix_shell_name="zsh"
 fi
 
 if
-	unix_shell_contraction==[qQ]
+	[[ $unix_shell_contraction =~ ^[Qq]$ ]]
 	then 
 	cd "$last_working_directory"
 	echo "Nothing changed. If you like this script, please give it a star. "
 	exit
 fi
 
+distribution_detections
+
+## exiting
 cd "$last_working_directory"
 echo "Setup completed. If you like this script, please give it a star. "
+exit
 }
 
 
@@ -65,6 +75,7 @@ rm ./install.sh
 
 function fish_setup(){
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+rm ./install
 
 }
 
@@ -94,7 +105,7 @@ fi
 }
 
 
-function darwin_setup(){
+function  distribution_detections(){
 if
 	"Darwin"==`uname` || "darwin"==`uname`
 then 
@@ -106,55 +117,43 @@ then
 	brew install make gawk curl git "$unix_shell_name"
 	rm ./install.sh
 	shells_setup
-fi
-}
-
-
-function alphin_setup(){
-	if 
+elif 
 	[[ "alpine"==`uname` || "Alpine"==`uname`  || `uname`== *"alpine"* || `uname`== *"Alpine"*   ]]
-	then
+then
 	apk add make gawk curl git "$unix_shell_name"
 	shells_setup
-	fi
-}
-
-
-function deb_setup(){
-	if
+elif
 	[[ "debian"==`uname` || "ubuntu"==`uname` || "Debian"==`uname` || "Ubuntu"==`uname`  || `uname`== *"Debian"* || `uname`== *"Ubuntu"*  || `uname`== *"debian"*  ||  `uname`== *"ubuntu"*  || `uname`== *"Termux"* || `uname`== *"termux"*  ]]
-	then
+then
 	apt install make gawk curl git "$unix_shell_name"
 	shells_setup
-	fi
-}
-
-
-function dnf_setup(){
-	if
+elif
 	[[ "Fedora"==`uname` || "fedora"==`uname` || `uname`== *"Fedora"*  ||  `uname`== *"fedora"*  || `uname`== *[cC][eE][nN][tT]*  || `uname`== *"cent"* ||  `uname`== *"Cent"*  || `uname`== *"RHEL"*  ]]
 	then
 	dnf install make gawk curl git "$unix_shell_name"
 	shells_setup
-	fi
-}
-
-function zypper_setup(){
-	if [[ `uname`== *"suse"*  || `uname`== *"SUSE"* || `uname`== *"SLE"*  || "OpenSUSE"==`uname` || "opensuse"==`uname`  ]]  
-	then
+elif 
+	[[ `uname`== *"suse"*  || `uname`== *"SUSE"* || `uname`== *"SLE"*  || "OpenSUSE"==`uname` || "opensuse"==`uname`  ]]  
+then
 	zypper install make gawk curl git "$unix_shell_name"
 	shells_setup
-	fi
-}
-
-
-function arch_setup(){
-	if 
+elif 
 	[[ "Arch"==`uname` || "manjaro"==`uname`  || `uname`== *"arch"* || `uname`== *"manjaro"*   ]]
 	then
 	pacman -S make gawk curl git "$unix_shell_name"
 	shells_setup
+else 
+read -p " \n We could not determine what distribution you are running. Continue installation anyway? \n  "  -n 1 -r REPLY
+echo
+	if [[ ! $REPLY =~ ^[Yy]$ ]]
+	then
+		shells_setup
+	else
+	cd "$last_working_directory"
+	echo "Nothing changed. If you like this script, please give it a star. "
+	exit
 	fi
+fi
 }
 
 
