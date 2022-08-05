@@ -1,4 +1,4 @@
-# zsh-plugin-setup
+# Unix_shell_plugins_setup
  Z shell plugins installer. It requires Zsh 5.7.1, Bash 5.1, fish shell 3.2, Git 2.8, cURL 7.76, or newer. This script includes the following plugins.
 
     https://github.com/marlonrichert/zsh-snap
@@ -12,9 +12,9 @@
 
 
 ### Installation
-`curl https://github.com/MoonLightElf/zsh-plugin-setup/raw/main/zsh-plugin-setup.sh | zsh`
+`curl -OL  https://github.com/MoonLightElf/unix_shell_plugins_setup/raw/main/unix_shell_plugins_setup.sh  | zsh`
 
-### Why do we use these zsh plugins?
+### Why do we use these unix shell plugins?
 Zsh is mainly compatible with bash. One of the compatibility issues we know is that bash supports wild char in commands. For example, "apt install compiz*". Zsh does not. 
 
 The autosuggestion feature of fish is "friendly interactive". Marlonrichert and contributors implement the autocomplete feature for zsh, and it provides more detailed information than fish does. Fizsh is not so sophisticated. Cantino/mcfly only searches in history.

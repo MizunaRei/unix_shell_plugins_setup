@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 
 shell_requirements=="make gawk curl git"
@@ -13,7 +13,7 @@ last_working_directory=$PWD
 ## go to user home directory for default setup.
 cd ~
 
-	read -p " \n Which Unix shell do you use? \n A. all of below \n B. bash \n F. fish \n Z. zsh \n " unix_shell_contraction
+	read -p " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n " unix_shell_contraction
 if
 	unix_shell_contraction==[aA]
 	then
@@ -38,7 +38,16 @@ if
 	unix_shell_name="zsh"
 fi
 
+if
+	unix_shell_contraction==[qQ]
+	then 
+	cd "$last_working_directory"
+	echo "Nothing changed. If you like this script, please give it a star. "
+	exit
+fi
+
 cd "$last_working_directory"
+echo "Setup completed. If you like this script, please give it a star. "
 }
 
 
@@ -58,8 +67,10 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 }
 
 function zsh_setup(){
-	chmod +x zsh_plugins/zsh_plugins_setup.sh
-	/bin/zsh zsh_plugins/zsh_plugins_setup.sh
+	curl -OL  https://github.com/MoonLightElf/unix_shell_plugins_setup/raw/main/zsh_plugins/zsh_plugins_setup.sh | zsh
+	## chmod +x  zsh_plugins_setup.sh
+	## /bin/zsh  zsh_plugins_setup.sh
+	rm ./zsh_plugins_setup.sh
 }
 
 
@@ -109,7 +120,7 @@ function alphin_setup(){
 
 function deb_setup(){
 	if
-	[[ "debian"==`uname` || "ubuntu"==`uname` || "Debian"==`uname` || "Ubuntu"==`uname`  || `uname`== *"Debian"* || `uname`== *"Ubuntu"*  || `uname`== *"debian"*  ||  `uname`== *"ubuntu"*  ]]
+	[[ "debian"==`uname` || "ubuntu"==`uname` || "Debian"==`uname` || "Ubuntu"==`uname`  || `uname`== *"Debian"* || `uname`== *"Ubuntu"*  || `uname`== *"debian"*  ||  `uname`== *"ubuntu"*  || `uname`== *"Termux"* || `uname`== *"termux"*  ]]
 	then
 	apt install make gawk curl git "$unix_shell_name"
 	shells_setup
