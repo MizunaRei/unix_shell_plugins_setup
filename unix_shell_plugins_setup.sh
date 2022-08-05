@@ -54,7 +54,9 @@ echo "Setup completed. If you like this script, please give it a star. "
 function bash_setup(){
 git clone --recursive --depth=1 https://github.com/akinomyoga/ble.sh.git
 make -C ble.sh install PREFIX=~/.local
-cat bash_plugins/ble.sh_bashrc_default >> ~/.bashrc
+curl -OL https://github.com/MoonLightElf/unix_shell_plugins_setup/raw/main/bash_plugins/ble.sh_bashrc_default
+cat ble.sh_bashrc_default  >> ~/.bashrc
+rm ./ble.sh_bashrc_default
 curl -OL https://bashhub.com/setup && bash setup
 rm ./setup
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
