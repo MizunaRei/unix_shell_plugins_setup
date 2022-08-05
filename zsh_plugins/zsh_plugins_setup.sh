@@ -8,8 +8,8 @@ cd ~
 
 
 curl -o zshrc-default  -sL https://github.com/MoonLightElf/zsh-plugin-setup/raw/main/zshrc-default
-cat zshrc-default >> .zshrc
-rm zshrc-default
+cat zshrc_default >> ~/.zshrc
+rm ./zshrc_default
 
 
 ## install marlonrichert/zsh-snap . start
@@ -52,6 +52,10 @@ echo "        znap prompt ohmyzsh/ohmyzsh random"
 znap source marlonrichert/zsh-autocomplete
 ## echo 'znap source marlonrichert/zsh-autocomplete' >>~/.zshrc
 
+
+## install bashhub.com
+curl -OL https://bashhub.com/setup && zsh setup
+rm ./setup
 
 cd $last_working_directory
 echo " \n \n Setup completed. Open a new terminal window with zsh to have fun. If zsh went wrong, please follow this guide https://github.com/marlonrichert/zsh-autocomplete#manual-installation . \n Or try to rename or delete ~/.zshrc , ~/.zprofile , ~/.p10k.zsh ,  and the folder of plugins (default path is ~/zsh-snap ) . \n Then execute this script again."

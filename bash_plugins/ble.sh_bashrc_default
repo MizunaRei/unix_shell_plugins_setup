@@ -1,0 +1,9 @@
+# bashrc
+
+# Add this lines at the top of .bashrc:
+[[ $- == *i* ]] && source /path/to/blesh/ble.sh --noattach
+
+# your bashrc settings come here...
+
+# Add this line at the end of .bashrc:
+[[ ${BLE_VERSION-} ]] && ble-attach
