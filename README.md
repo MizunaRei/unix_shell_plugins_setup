@@ -1,10 +1,15 @@
 # zsh-plugin-setup
- Z shell plugins installer. It requires Zsh 5.7.1 or newer and Git 2.8 or newer and cURL. This script includes the following plugins.
+ Z shell plugins installer. It requires Zsh 5.7.1, Bash 5.1, fish shell 3.2, Git 2.8, cURL 7.76, or newer. This script includes the following plugins.
 
     https://github.com/marlonrichert/zsh-snap
     https://github.com/marlonrichert/zsh-autocomplete
     https://github.com/ohmyzsh/ohmyzsh
     https://github.com/romkatv/powerlevel10k
+    https://github.com/ohmybash/oh-my-bash
+    https://github.com/akinomyoga/ble.sh
+    https://github.com/oh-my-fish/oh-my-fish
+    https://github.com/rcaloras/bashhub-client
+
 
 ### Installation
 `curl https://github.com/MoonLightElf/zsh-plugin-setup/raw/main/zsh-plugin-setup.sh | zsh`

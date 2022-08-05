@@ -7,7 +7,7 @@ last_working_directory=$PWD
 cd ~
 
 
-curl -o zshrc-default  -sL https://github.com/MoonLightElf/zsh-plugin-setup/raw/main/zshrc-default
+curl -o zshrc_default  -sL  https://github.com/MoonLightElf/unix_shell_plugins_setup/raw/main/zsh_plugins/zshrc_default
 cat zshrc_default >> ~/.zshrc
 rm ./zshrc_default
 
