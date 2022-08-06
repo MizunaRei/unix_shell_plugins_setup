@@ -88,7 +88,7 @@ function zsh_setup() {
 
 
 function shells_setup() {
-	if [["$unix_shell_name" == *"bash"*]] then
+	if [["$unix_shell_name" = *"bash"*]] then
 	echo " \n Setting up bash plugins. \n "
 	bash_setup
 	fi
