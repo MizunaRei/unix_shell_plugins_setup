@@ -12,7 +12,7 @@ function main() {
 	## same as main() function in C language
 
 	## save user's current working directory
-	LAST_WORKING_DIRECTORY = $PWD
+	LAST_WORKING_DIRECTORY = "$PWD"
 	## go to user home directory for default setup.
 	cd ~
 
@@ -93,12 +93,12 @@ function shells_setup() {
 	bash_setup
 	fi
 
-	if [["$unix_shell_name" == *"fish"*]] then
+	if [["$unix_shell_name" = *"fish"*]] then
 	echo " \n Setting up fish plugins. \n "
 	fish_setup
 	fi
 
-	if [["$unix_shell_name" == *"zsh"*]] then
+	if [["$unix_shell_name" = *"zsh"*]] then
 	echo " \n Setting up zsh plugins. \n "
 	zsh_setup
 	fi
