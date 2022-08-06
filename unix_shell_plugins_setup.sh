@@ -2,6 +2,7 @@
 
 
 ## global variables
+SHELL_REQUIREMENTS = "$2"
 SHELL_REQUIREMENTS = 'make gawk curl git'
 UNIX_SHELL_CONTRACTION = "a"
 UNIX_SHELL_NAME = "bash fish zsh"
