@@ -3,9 +3,9 @@
 
 ## global variables
 
-shell_requirements = 'make gawk curl git'
-UNIX_SHELL_CONTRACTION = "a"
-UNIX_SHELL_NAME = " fish zsh bash "
+## shell_requirements = 'make gawk curl git'
+## UNIX_SHELL_CONTRACTION = "a"
+## UNIX_SHELL_NAME = " fish zsh bash "
 
 
 
@@ -18,8 +18,9 @@ function main() {
 	cd ~
 
 	## choose unix shells to setup
-	read -p " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n " -n 1 -r unix_shell_contraction
-	echo
+	echo " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n " 
+	read -n 1 -r unix_shell_contraction
+	echo -e
 	if
 		[[$unix_shell_contraction =~ ^[Aa]$]]
 
@@ -89,7 +90,7 @@ function zsh_setup() {
 
 
 function shells_setup() {
-	if [["$unix_shell_name" = *"bash"*]] then
+	if [["$unix_shell_name" = *"bash"*]]; then
 	echo " \n Setting up bash plugins. \n "
 	bash_setup
 	fi
