@@ -3,9 +3,9 @@
 
 ## global variables
 export unix_shell_requirements=' make gawk curl git  ruby puthon3 '
-export unix_shell_contraction="a"
+## export unix_shell_contraction="a"
 export unix_shell_name=" fish zsh bash "
-export unixdistribution_name=`uname`
+export unix_distribution_name=`uname`
 
 
 function main() {
@@ -45,7 +45,7 @@ function main() {
 	unix_shell_name="zsh"
 	fi
 
-	if [[ "$REPLY"=~^[Qq]$ ]]
+	if [[ !"$REPLY"=~^[Qq]$ ]]
 	then
 	exit_canceled_cleanup
 	## cd "$last_working_directory"
