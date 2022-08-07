@@ -20,7 +20,7 @@ function main() {
 	## choose unix shells to setup
 	echo " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "
 	## read -n 1 unix_shell_contraction
-	read REPLY
+	read  -n 1 REPLY
 	## echo -e
 	## if [["$unix_shell_contraction" =~ ^[Aa]$]]
 	if [[ "$REPLY" =~ ^[Aa]$ ]]
@@ -61,7 +61,7 @@ function main() {
 
 
 function bash_setup() {
-	git clone --recursive --depth = 1 https://github.com/akinomyoga/ble.sh.git
+	git clone --recursive --depth=1 https://github.com/akinomyoga/ble.sh.git
 	make -C ble.sh install PREFIX=~/.local
 	curl -OL https://github.com/MoonLightElf/unix_shell_plugins_setup/raw/main/bash_plugins/ble.sh_bashrc_default
 	cat ble.sh_bashrc_default >> ~/.bashrc
@@ -105,8 +105,7 @@ function shells_setup() {
 
 
 function distribution_detecting_shells_setup() {
-	if
-		"Darwin"==`uname` || "darwin"==`uname`
+	if [[ "Darwin"==`uname` || "darwin"==`uname` ]] 
 	then
 	# brew.sh officaial installer script
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -117,27 +116,27 @@ function distribution_detecting_shells_setup() {
 	rm ./install.sh
 	shells_setup
 	elif
-	[["alpine"==`uname` || "Alpine"==`uname` || `uname`== *"alpine"* || `uname`== *"Alpine"*]]
+	[[ "alpine"==`uname` || "Alpine"==`uname` || `uname`== *"alpine"* || `uname`== *"Alpine"* ]]
 	then
 	apk add make gawk curl git "$unix_shell_name"
 	shells_setup
 	elif
-	[["debian"==`uname` || "ubuntu"==`uname` || "Debian"==`uname` || "Ubuntu"==`uname` || `uname`== *"Debian"* || `uname`== *"Ubuntu"* || `uname`== *"debian"* || `uname`== *"ubuntu"* || `uname`== *"Termux"* || `uname`== *"termux"*]]
+	[[ "debian"==`uname` || "ubuntu"==`uname` || "Debian"==`uname` || "Ubuntu"==`uname` || `uname`== *"Debian"* || `uname`== *"Ubuntu"* || `uname`== *"debian"* || `uname`== *"ubuntu"* || `uname`== *"Termux"* || `uname`== *"termux"* ]]
 	then
 	apt install make gawk curl git "$unix_shell_name"
 	shells_setup
 	elif
-	[["Fedora"==`uname` || "fedora"==`uname` || `uname`== *"Fedora"* || `uname`== *"fedora"* || `uname`== *[cC][eE][nN][tT]* || `uname`== *"cent"* || `uname`== *"Cent"* || `uname`== *"RHEL"*]]
+	[[ "Fedora"==`uname` || "fedora"==`uname` || `uname`== *"Fedora"* || `uname`== *"fedora"* || `uname`== *[cC][eE][nN][tT]* || `uname`== *"cent"* || `uname`== *"Cent"* || `uname`== *"RHEL"* ]]
 	then
 	dnf install make gawk curl git "$unix_shell_name"
 	shells_setup
 	elif
-	[[`uname`== *"suse"* || `uname`== *"SUSE"* || `uname`== *"SLE"* || "OpenSUSE"==`uname` || "opensuse"==`uname`]]
+	[[ `uname`== *"suse"* || `uname`== *"SUSE"* || `uname`== *"SLE"* || "OpenSUSE"==`uname` || "opensuse"==`uname` ]]
 	then
 	zypper install make gawk curl git "$unix_shell_name"
 	shells_setup
 	elif
-	[["Arch"==`uname` || "manjaro"==`uname` || `uname`== *"arch"* || `uname`== *"manjaro"*]]
+	[[ "Arch"==`uname` || "manjaro"==`uname` || `uname`== *"arch"* || `uname`== *"manjaro"* ]]
 	then
 	pacman -S make gawk curl git "$unix_shell_name"
 	shells_setup
@@ -145,7 +144,7 @@ function distribution_detecting_shells_setup() {
 		echo " \n We could not determine what distribution you are running. Continue installation anyway? \n  "
 	read -n 1 REPLY
 	echo
-	if [["$REPLY" =~ ^[Yy]$]];
+	if [[ "$REPLY" =~ ^[Yy]$ ]];
 	then
 	shells_setup
 	else
