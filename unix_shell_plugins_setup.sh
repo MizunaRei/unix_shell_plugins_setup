@@ -46,7 +46,8 @@ function main() {
 	unix_shell_name="zsh"
 	fi
 
-	if [[ "$REPLY"=~^[Qq]$ ]]
+	## if [[ "$REPLY"=~^[Qq]$ ]]
+if [[ "$REPLY"==q || "$REPLY"==Q ]]  
 	then
 	exit_canceled_cleanup
 	## cd "$last_working_directory"
