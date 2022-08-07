@@ -117,7 +117,7 @@ function distribution_detecting_shells_setup() {
 	rm ./install.sh
 	shells_setup
 	elif
-	[[ "alpine"==`uname` || "Alpine"==`uname` || `uname`== *"alpine"* || `uname`== *"Alpine"* ]]
+	[[ "alpine"==`uname` || "Alpine"==`uname` || `uname`==*"alpine"* || `uname`==*"Alpine"* ]]
 	then
 	apk add make gawk curl git "$unix_shell_name"
 	shells_setup
