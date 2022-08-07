@@ -19,7 +19,7 @@ function main() {
 
 
 	## choose unix shells to setup
-	echo " \n Hello. Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "
+	echo " \n Hello.  \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "
 	## echo -e
 	## bash grammar  ## read -n 1 r unix_shell_contraction
 	read -k1 REPLY
@@ -45,7 +45,7 @@ function main() {
 	unix_shell_name="zsh"
 	fi
 
-	if [[ !"$REPLY"=~^[Qq]$ ]]
+	if [[ "$REPLY"=~^[Qq]$ ]]
 	then
 	exit_canceled_cleanup
 	## cd "$last_working_directory"
