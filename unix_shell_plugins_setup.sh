@@ -88,17 +88,17 @@ function zsh_setup() {
 
 
 function shells_setup() {
-	if [["$unix_shell_name" = *"bash"*]]; then
+	if [[ "$unix_shell_name" = *"bash"* ]]; then
 	echo " \n Setting up bash plugins. \n "
 	bash_setup
 	fi
 
-	if [["$unix_shell_name" = *"fish"*]]; then
+	if [[ "$unix_shell_name" = *"fish"* ]]; then
 	echo " \n Setting up fish plugins. \n "
 	fish_setup
 	fi
 
-	if [["$unix_shell_name" = *"zsh"*]]; then
+	if [[ "$unix_shell_name" = *"zsh"* ]]; then
 	echo " \n Setting up zsh plugins. \n "
 	zsh_setup
 	fi
@@ -132,7 +132,7 @@ function distribution_detecting_shells_setup() {
 	dnf install make gawk curl git "$unix_shell_name"
 	shells_setup
 	elif
-	[[ `uname`== *"suse"* || `uname`== *"SUSE"* || `uname`== *"SLE"* || "OpenSUSE"==`uname` || "opensuse"==`uname` ]]
+	[[ `uname`==*"suse"* || `uname`== *"SUSE"* || `uname`== *"SLE"* || "OpenSUSE"==`uname` || "opensuse"==`uname` ]]
 	then
 	zypper install make gawk curl git "$unix_shell_name"
 	shells_setup
