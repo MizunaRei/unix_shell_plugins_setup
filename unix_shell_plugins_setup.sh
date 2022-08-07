@@ -23,7 +23,7 @@ function main() {
 	## echo -e
 	## bash grammar  ## read -n 1 r unix_shell_contraction
 	read -k1 REPLY
-	 echo "$REPLY"
+	 ## echo "$REPLY"
 	## if [["$unix_shell_contraction"=~^[Aa]$]]
 	if [[ "$REPLY"=~^[Aa]$ ]]
 	then
