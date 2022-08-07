@@ -91,17 +91,20 @@ function zsh_setup() {
 
 
 function shells_setup() {
-	if [[ "$unix_shell_name" = *"bash"* ]]; then
+	if [[ "$unix_shell_name"==*"bash"* ]]
+	then
 	echo " \n Setting up bash plugins. \n "
 	bash_setup
 	fi
 
-	if [[ "$unix_shell_name" = *"fish"* ]]; then
+	if [[ "$unix_shell_name"==*"fish"* ]]
+	then
 	echo " \n Setting up fish plugins. \n "
 	fish_setup
 	fi
 
-	if [[ "$unix_shell_name" = *"zsh"* ]]; then
+	if [[ "$unix_shell_name"==*"zsh"* ]]
+	then
 	echo " \n Setting up zsh plugins. \n "
 	zsh_setup
 	fi
@@ -119,28 +122,23 @@ function distribution_detecting_shells_setup() {
 	brew install make gawk curl git "$unix_shell_name"
 	rm ./install.sh
 	shells_setup
-	elif
-	[[ "alpine"==`uname` || "Alpine"==`uname` || `uname`==*"alpine"* || `uname`==*"Alpine"* ]]
+	elif [[ "alpine"==`uname` || "Alpine"==`uname` || `uname`==*"alpine"* || `uname`==*"Alpine"* ]]
 	then
 	apk add make gawk curl git "$unix_shell_name"
 	shells_setup
-	elif
-	[[ "debian"==`uname` || "ubuntu"==`uname` || "Debian"==`uname` || "Ubuntu"==`uname` || `uname`==*"Debian"* || `uname`==*"Ubuntu"* || `uname`==*"debian"* || `uname`==*"ubuntu"* || `uname`==*"Termux"* || `uname`==*"termux"* ]]
+	elif [[ "debian"==`uname` || "ubuntu"==`uname` || "Debian"==`uname` || "Ubuntu"==`uname` || `uname`==*"Debian"* || `uname`==*"Ubuntu"* || `uname`==*"debian"* || `uname`==*"ubuntu"* || `uname`==*"Termux"* || `uname`==*"termux"* ]]
 	then
 	apt install make gawk curl git "$unix_shell_name"
 	shells_setup
-	elif
-	[[ "Fedora"==`uname` || "fedora"==`uname` || `uname`==*"Fedora"* || `uname`==*"fedora"* || `uname`==*[cC][eE][nN][tT]* || `uname`==*"cent"* || `uname`==*"Cent"* || `uname`==*"RHEL"* ]]
+	elif [[ "Fedora"==`uname` || "fedora"==`uname` || `uname`==*"Fedora"* || `uname`==*"fedora"* || `uname`==*[cC][eE][nN][tT]* || `uname`==*"cent"* || `uname`==*"Cent"* || `uname`==*"RHEL"* ]]
 	then
 	dnf install make gawk curl git "$unix_shell_name"
 	shells_setup
-	elif
-	[[ *"suse"*==`uname` || `uname`==*"SUSE"* || `uname`==*"SLE"* || "OpenSUSE"==`uname` || "opensuse"==`uname` ]]
+	elif [[ *"suse"*==`uname` || `uname`==*"SUSE"* || `uname`==*"SLE"* || "OpenSUSE"==`uname` || "opensuse"==`uname` ]]
 	then
 	zypper install make gawk curl git "$unix_shell_name"
 	shells_setup
-	elif
-	[[ "Arch"==`uname` || "manjaro"==`uname` || `uname`==*"arch"* || `uname`==*"manjaro"* || `uname`==*"arco"* || `uname`==*"artix"* ]]
+	elif [[ "Arch"==`uname` || "manjaro"==`uname` || `uname`==*"arch"* || `uname`==*"manjaro"* || `uname`==*"arco"* || `uname`==*"artix"* ]]
 	then
 	pacman -S make gawk curl git "$unix_shell_name"
 	shells_setup
