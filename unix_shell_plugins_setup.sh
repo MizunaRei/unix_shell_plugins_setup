@@ -12,7 +12,7 @@ function main() {
 
 
 	## save user's current working directory
-	last_working_directory = "$PWD"
+	"$last_working_directory" = "$PWD"
 	## go to user home directory for default setup.
 	cd ~
 
@@ -145,7 +145,8 @@ function distribution_detecting_shells_setup() {
 	pacman -S make gawk curl git "$unix_shell_name"
 	shells_setup
 	else
-		read -p " \n We could not determine what distribution you are running. Continue installation anyway? \n  " -n 1  REPLY
+		echo  " \n We could not determine what distribution you are running. Continue installation anyway? \n  " 
+		read -n 1  REPLY
 	echo
 	if [[ "$REPLY" =~ ^[Yy]$ ]];
 	then
