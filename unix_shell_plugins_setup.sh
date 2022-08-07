@@ -23,28 +23,28 @@ function main() {
 	## read -n 1 unix_shell_contraction
 	read   REPLY
 	 echo 
-	## if [["$unix_shell_contraction" =~ ^[Aa]$]]
-	if [[ "$REPLY" =~ ^[Aa]$ ]]
+	## if [["$unix_shell_contraction"=~^[Aa]$]]
+	if [[ "$REPLY"=~^[Aa]$ ]]
 	then
 	unix_shell_name="bash fish zsh"
 	fi
 
-	if [[ "$REPLY" =~ ^[Bb]$ ]]
+	if [[ "$REPLY"=~^[Bb]$ ]]
 	then
 	unix_shell_name="bash"
 	fi
 
-	if [[ "$REPLY" =~ ^[Ff]$ ]]
+	if [[ "$REPLY"=~^[Ff]$ ]]
 	then
 	unix_shell_name="fish"
 	fi
 
-	if [[ "$REPLY" =~ ^[Zz]$ ]]
+	if [[ "$REPLY"=~^[Zz]$ ]]
 	then
 	unix_shell_name="zsh"
 	fi
 
-	if [[ "$REPLY" =~ ^[Qq]$ ]]
+	if [[ "$REPLY"=~^[Qq]$ ]]
 	then
 	exit_canceled_cleanup
 	## cd "$last_working_directory"
@@ -147,7 +147,7 @@ function distribution_detecting_shells_setup() {
 	echo -e
 	read -n 1 REPLY
 	echo 
-	if [[ "$REPLY" =~ ^[Yy]$ ]];
+	if [[ "$REPLY"=~^[Yy]$ ]];
 	then
 	shells_setup
 	else
