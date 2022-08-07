@@ -2,7 +2,7 @@
 
 
 ## global variables
- shell_requirements='make gawk curl git'
+ shell_requirements=' make gawk curl git '
  UNIX_SHELL_CONTRACTION="a"
 UNIX_SHELL_NAME=" fish zsh bash "
 
@@ -22,7 +22,7 @@ function main() {
 	read -n 1  unix_shell_contraction
 	echo -e
 	if
-		[["$unix_shell_contraction" =~ ^[Aa]$]]
+		[["$unix_shell_contraction" =~ ^[Aa]$]];
 
 	then
 	unix_shell_name = "bash fish zsh"
