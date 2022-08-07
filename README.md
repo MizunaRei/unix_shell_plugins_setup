@@ -12,7 +12,7 @@
 
 
 ### Installation
-`curl -OL  https://github.com/MoonLightElf/unix_shell_plugins_setup/raw/main/unix_shell_plugins_setup.sh  &&  bash unix_shell_plugins_setup.sh`
+`curl -OL  https://github.com/MoonLightElf/unix_shell_plugins_setup/raw/main/unix_shell_plugins_setup.sh  &&  zsh unix_shell_plugins_setup.sh`
 
 ### Why do we use these unix shell plugins?
 Zsh is mainly compatible with bash. One of the compatibility issues we know is that bash supports wild char in commands. For example, "apt install compiz*". Zsh does not. 
