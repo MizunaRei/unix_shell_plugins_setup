@@ -19,7 +19,7 @@ function main() {
 
 
 	## choose unix shells to setup
-	echo " \n Hello.  \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "
+	echo " \n Hello.  \n Which Unix shell do you use? \n  Press the first letter on keyboard.  \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "
 	## echo -e
 	## bash grammar  ## read -n 1 r unix_shell_contraction
 	while true; do 
