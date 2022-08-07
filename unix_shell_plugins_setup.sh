@@ -148,7 +148,6 @@ function distribution_detecting_shells_setup() {
 		read -p " \n We could not determine what distribution you are running. Continue installation anyway? \n  " -n 1 -r REPLY
 	echo
 	if [[ "$REPLY" =~ ^[Yy]$]]
-	if [[ "$REPLY" =~ ^[Yy]$]]
 	then
 	shells_setup
 	else
