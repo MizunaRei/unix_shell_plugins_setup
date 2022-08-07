@@ -13,7 +13,7 @@ function main() {
 
 
 	## save user's current working directory
-	last_working_directory="$PWD"
+	export last_working_directory="$PWD"
 	## go to user home directory for default setup.
 	cd "$HOME"
 
@@ -123,23 +123,23 @@ function distribution_detecting_shells_setup() {
 	brew install make gawk curl git "$unix_shell_name"
 	rm ./install.sh
 	shells_setup
-	elif [[ "alpine"=="$unix_distribution_name"  || "Alpine"=="$unix_distribution_name"  || "$unix_distribution_name" ==*"alpine"* || "$unix_distribution_name" ==*"Alpine"* ]]
+	elif [[ "alpine"=="$unix_distribution_name"  || "Alpine"=="$unix_distribution_name"  || "$unix_distribution_name" =~*"alpine"* || "$unix_distribution_name" =~*"Alpine"* ]]
 	then
 	apk add make gawk curl git "$unix_shell_name"
 	shells_setup
-	elif [[ "debian"=="$unix_distribution_name"  || "ubuntu"=="$unix_distribution_name"  || "Debian"=="$unix_distribution_name"  || "Ubuntu"=="$unix_distribution_name"  || "$unix_distribution_name" ==*"Debian"* || "$unix_distribution_name" ==*"Ubuntu"* || "$unix_distribution_name" ==*"debian"* || "$unix_distribution_name" ==*"ubuntu"* || "$unix_distribution_name" ==*"Termux"* || "$unix_distribution_name" ==*"termux"* ]]
+	elif [[ "debian"=="$unix_distribution_name"  || "ubuntu"=="$unix_distribution_name"  || "Debian"=="$unix_distribution_name"  || "Ubuntu"=="$unix_distribution_name"  || "$unix_distribution_name" =~*"Debian"* || "$unix_distribution_name" =~*"Ubuntu"* || "$unix_distribution_name" =~*"debian"* || "$unix_distribution_name" =~*"ubuntu"* || "$unix_distribution_name" =~*"Termux"* || "$unix_distribution_name" =~*"termux"* ]]
 	then
 	apt install make gawk curl git "$unix_shell_name"
 	shells_setup
-	elif [[ "Fedora"=="$unix_distribution_name"  || "fedora"=="$unix_distribution_name"  || "$unix_distribution_name" ==*"Fedora"* || "$unix_distribution_name" ==*"fedora"* || "$unix_distribution_name" ==*[cC][eE][nN][tT]* || "$unix_distribution_name" ==*"cent"* || "$unix_distribution_name" ==*"Cent"* || "$unix_distribution_name" ==*"RHEL"* ]]
+	elif [[ "Fedora"=="$unix_distribution_name"  || "fedora"=="$unix_distribution_name"  || "$unix_distribution_name" =~*"Fedora"* || "$unix_distribution_name"=~*"fedora"* || "$unix_distribution_name"=~*[cC][eE][nN][tT]* || "$unix_distribution_name"=~*"cent"* || "$unix_distribution_name"=~*"Cent"* || "$unix_distribution_name"=~*"RHEL"* ]]
 	then
 	dnf install make gawk curl git "$unix_shell_name"
 	shells_setup
-	elif [[ *"suse"*=="$unix_distribution_name"  || "$unix_distribution_name" ==*"SUSE"* || "$unix_distribution_name" ==*"SLE"* || "OpenSUSE"=="$unix_distribution_name"  || "opensuse"=="$unix_distribution_name"  ]]
+	elif [[ *"suse"*=="$unix_distribution_name"  || "$unix_distribution_name"=~*"SUSE"* || "$unix_distribution_name"=~*"SLE"* || "OpenSUSE"=="$unix_distribution_name"  || "opensuse"=="$unix_distribution_name"  ]]
 	then
 	zypper install make gawk curl git "$unix_shell_name"
 	shells_setup
-	elif [[ "Arch"=="$unix_distribution_name"  || "manjaro"=="$unix_distribution_name"  || "$unix_distribution_name" ==*"arch"* || "$unix_distribution_name" ==*"manjaro"* || "$unix_distribution_name" ==*"arco"* || "$unix_distribution_name" ==*"artix"* ]]
+	elif [[ "Arch"=="$unix_distribution_name"  || "manjaro"=="$unix_distribution_name"  || "$unix_distribution_name"=~*"arch"* || "$unix_distribution_name"=~*"manjaro"* || "$unix_distribution_name"=~*"arco"* || "$unix_distribution_name"=~*"artix"* ]]
 	then
 	pacman -S make gawk curl git "$unix_shell_name"
 	shells_setup
