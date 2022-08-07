@@ -22,32 +22,32 @@ function main() {
 	echo " \n Hello.  \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "
 	## echo -e
 	## bash grammar  ## read -n 1 r unix_shell_contraction
+	while true; do 
 	read -k1 REPLY
 	 ## echo "$REPLY"
 	## if [["$unix_shell_contraction"=~^[Aa]$]]
 	if [[ "$REPLY"=~^[Aa]$ ]]
 	then
 	unix_shell_name="bash fish zsh"
-	fi
-
-	if [[ "$REPLY"=~^[Bb]$ ]]
+	elif [[ "$REPLY"=~^[Bb]$ ]]
 	then
 	unix_shell_name="bash"
-	fi
+	break
+	
 
 	## if [[ "$REPLY"=~^[Ff]$ ]]
-	if [[ "$REPLY"==f || "$REPLY"==F ]] 
+	elif [[ "$REPLY"==f || "$REPLY"==F ]] 
 	then
 	unix_shell_name="fish"
-	fi
-
-	if [[ "$REPLY"=~^[Zz]$ ]]
+	break
+	elif [[ "$REPLY"=~^[Zz]$ ]]
 	then
 	unix_shell_name="zsh"
-	fi
+	break
+	
 
 	## if [[ "$REPLY"=~^[Qq]$ ]]
-if [[ "$REPLY"==q || "$REPLY"==Q ]]  
+	elif  [[ "$REPLY"==q || "$REPLY"==Q ]]  
 	then
 	echo "will call exit_canceled_cleanup() "
 	exit_canceled_cleanup
@@ -55,7 +55,7 @@ if [[ "$REPLY"==q || "$REPLY"==Q ]]
 	## echo "Nothing changed. If you like this script, please give it a star. "
 	## exit
 	fi
-
+done
 	distribution_detecting_shells_setup
 
 	## exiting
