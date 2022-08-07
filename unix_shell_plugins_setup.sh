@@ -29,6 +29,7 @@ function main() {
 	if [[ "$REPLY"=~^[Aa]$ ]]
 	then
 	unix_shell_name="bash fish zsh"
+	break
 	elif [[ "$REPLY"=~^[Bb]$ ]]
 	then
 	unix_shell_name="bash"
@@ -56,6 +57,7 @@ function main() {
 	## exit
 	else
 	echo " \n Press the first letter on keyboard. \n "
+	continue
 	fi
 done
 	distribution_detecting_shells_setup
