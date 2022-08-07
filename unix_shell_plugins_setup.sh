@@ -159,4 +159,13 @@ function distribution_detecting_shells_setup() {
 }
 
 
+function exiting_cleanup(){
+	echo "Setup completed. If you like this script, please give it a star. "
+	rm ./unix_shell_plugins_setup.sh
+	cd "$last_working_directory"
+	exit
+	
+}
+}
+
 main
