@@ -19,10 +19,11 @@ function main() {
 
 	## choose unix shells to setup
 	echo " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "
-	read -n 1 unix_shell_contraction
+	## read -n 1 unix_shell_contraction
+	read REPLY
 	echo -e
-	if [["$unix_shell_contraction" =~ ^[Aa]$]]
-
+	## if [["$unix_shell_contraction" =~ ^[Aa]$]]
+if [[ "$REPLY" =~ ^[Aa]$ ]]
 	then
 	unix_shell_name = "bash fish zsh"
 	fi
