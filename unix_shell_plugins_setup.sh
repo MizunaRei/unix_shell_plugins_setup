@@ -20,10 +20,10 @@ function main() {
 
 	## choose unix shells to setup
 	echo " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "
-	echo -e
+	## echo -e
 	## read -n 1 unix_shell_contraction
-	read   REPLY
-	 echo 
+	read -n 1 REPLY
+	 echo "$REPLY"
 	## if [["$unix_shell_contraction"=~^[Aa]$]]
 	if [[ "$REPLY"=~^[Aa]$ ]]
 	then
@@ -145,7 +145,7 @@ function distribution_detecting_shells_setup() {
 	shells_setup
 	else
 		echo " \n We could not determine what distribution you are running. Continue installation anyway? \n  "
-	echo -e
+	## echo -e
 	read -n 1 REPLY
 	echo 
 	if [[ "$REPLY"=~^[Yy]$ ]];
@@ -169,7 +169,7 @@ function exit_succeeded_cleanup() {
 
 
 function exit_canceled_cleanup() {
-	echo " \n Setup canceled. Your system  is not modified.  \n If you like this script, please give it a star. \n "
+	echo " \n Setup canceled. Your system was not modified.  \n If you like this script, please give it a star. \n "
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit
