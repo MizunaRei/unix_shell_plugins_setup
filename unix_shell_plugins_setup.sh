@@ -122,22 +122,22 @@ function distribution_detecting_shells_setup() {
 	apk add make gawk curl git "$unix_shell_name"
 	shells_setup
 	elif
-	[[ "debian"==`uname` || "ubuntu"==`uname` || "Debian"==`uname` || "Ubuntu"==`uname` || `uname`== *"Debian"* || `uname`== *"Ubuntu"* || `uname`== *"debian"* || `uname`== *"ubuntu"* || `uname`== *"Termux"* || `uname`== *"termux"* ]]
+	[[ "debian"==`uname` || "ubuntu"==`uname` || "Debian"==`uname` || "Ubuntu"==`uname` || `uname`==*"Debian"* || `uname`==*"Ubuntu"* || `uname`==*"debian"* || `uname`==*"ubuntu"* || `uname`==*"Termux"* || `uname`==*"termux"* ]]
 	then
 	apt install make gawk curl git "$unix_shell_name"
 	shells_setup
 	elif
-	[[ "Fedora"==`uname` || "fedora"==`uname` || `uname`== *"Fedora"* || `uname`== *"fedora"* || `uname`== *[cC][eE][nN][tT]* || `uname`== *"cent"* || `uname`== *"Cent"* || `uname`== *"RHEL"* ]]
+	[[ "Fedora"==`uname` || "fedora"==`uname` || `uname`==*"Fedora"* || `uname`==*"fedora"* || `uname`==*[cC][eE][nN][tT]* || `uname`==*"cent"* || `uname`==*"Cent"* || `uname`==*"RHEL"* ]]
 	then
 	dnf install make gawk curl git "$unix_shell_name"
 	shells_setup
 	elif
-	[[ *"suse"*==`uname` || `uname`== *"SUSE"* || `uname`== *"SLE"* || "OpenSUSE"==`uname` || "opensuse"==`uname` ]]
+	[[ *"suse"*==`uname` || `uname`==*"SUSE"* || `uname`==*"SLE"* || "OpenSUSE"==`uname` || "opensuse"==`uname` ]]
 	then
 	zypper install make gawk curl git "$unix_shell_name"
 	shells_setup
 	elif
-	[[ "Arch"==`uname` || "manjaro"==`uname` || `uname`== *"arch"* || `uname`== *"manjaro"* ]]
+	[[ "Arch"==`uname` || "manjaro"==`uname` || `uname`==*"arch"* || `uname`==*"manjaro"* || `uname`==*"arco"* || `uname`==*"artix"*]]
 	then
 	pacman -S make gawk curl git "$unix_shell_name"
 	shells_setup
