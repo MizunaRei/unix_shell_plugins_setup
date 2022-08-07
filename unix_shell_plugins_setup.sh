@@ -28,17 +28,17 @@ function main() {
 	unix_shell_name = "bash fish zsh"
 	fi
 
-	if [["$unix_shell_contraction" =~ ^[Bb]$]]
+	if [["$REPLY" =~ ^[Bb]$]]
 	then
 	unix_shell_name = "bash"
 	fi
 
-	if [["$unix_shell_contraction" =~ ^[Ff]$]]
+	if [["$REPLY" =~ ^[Ff]$]]
 	then
 	unix_shell_name = "fish"
 	fi
 
-	if [["$unix_shell_contraction" =~ ^[Zz]$]]
+	if [["$REPLY" =~ ^[Zz]$]]
 	then
 	unix_shell_name = "zsh"
 	fi
