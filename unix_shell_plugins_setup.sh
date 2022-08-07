@@ -53,9 +53,9 @@ function main() {
 	distribution_detecting_shells_setup
 
 	## exiting
-	cd "$last_working_directory"
-	echo "Setup completed. If you like this script, please give it a star. "
-	exit
+	## cd "$last_working_directory"
+	## echo "Setup completed. If you like this script, please give it a star. "
+	exit_succeeded_cleanup
 }
 
 
