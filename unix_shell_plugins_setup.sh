@@ -12,7 +12,7 @@ function main() {
 
 
 	## save user's current working directory
-	"$last_working_directory" = "$PWD"
+	last_working_directory == "$PWD"
 	## go to user home directory for default setup.
 	cd ~
 
