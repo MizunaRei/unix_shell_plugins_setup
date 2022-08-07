@@ -22,7 +22,7 @@ function main() {
 	echo -e
 	## read -n 1 unix_shell_contraction
 	read  -n 1 REPLY
-	## echo -e
+	 echo 
 	## if [["$unix_shell_contraction" =~ ^[Aa]$]]
 	if [[ "$REPLY" =~ ^[Aa]$ ]]
 	then
@@ -145,7 +145,7 @@ function distribution_detecting_shells_setup() {
 		echo " \n We could not determine what distribution you are running. Continue installation anyway? \n  "
 	echo -e
 	read -n 1 REPLY
-	echo -e
+	echo 
 	if [[ "$REPLY" =~ ^[Yy]$ ]];
 	then
 	shells_setup
