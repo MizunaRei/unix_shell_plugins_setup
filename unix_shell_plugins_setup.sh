@@ -35,7 +35,8 @@ function main() {
 	unix_shell_name="bash"
 	fi
 
-	if [[ "$REPLY"=~^[Ff]$ ]]
+	## if [[ "$REPLY"=~^[Ff]$ ]]
+	if [[ "$REPLY"==f || "$REPLY"==F ]] 
 	then
 	unix_shell_name="fish"
 	fi
