@@ -23,27 +23,27 @@ function main() {
 	read REPLY
 	## echo -e
 	## if [["$unix_shell_contraction" =~ ^[Aa]$]]
-	if [["$REPLY" =~ ^[Aa]$]]
+	if [[ "$REPLY" =~ ^[Aa]$ ]]
 	then
 	unix_shell_name="bash fish zsh"
 	fi
 
-	if [["$REPLY" =~ ^[Bb]$]]
+	if [[ "$REPLY" =~ ^[Bb]$ ]]
 	then
 	unix_shell_name="bash"
 	fi
 
-	if [["$REPLY" =~ ^[Ff]$]]
+	if [[ "$REPLY" =~ ^[Ff]$ ]]
 	then
 	unix_shell_name="fish"
 	fi
 
-	if [["$REPLY" =~ ^[Zz]$]]
+	if [[ "$REPLY" =~ ^[Zz]$ ]]
 	then
 	unix_shell_name="zsh"
 	fi
 
-	if [["$REPLY" =~ ^[Qq]$]]
+	if [[ "$REPLY" =~ ^[Qq]$ ]]
 	then
 	exit_canceled_cleanup
 	## cd "$last_working_directory"
