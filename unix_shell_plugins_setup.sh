@@ -69,6 +69,8 @@ function bash_setup() {
 	rm ./ble.sh_bashrc_default
 	curl -OL https://bashhub.com/setup && bash setup
 	rm ./setup
+	## oh my bash official installer
+	
 	bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 	rm ./install.sh
 }
@@ -80,7 +82,8 @@ function fish_setup() {
 }
 
 function zsh_setup() {
-	curl -OL https://github.com/MoonLightElf/unix_shell_plugins_setup/raw/main/zsh_plugins/zsh_plugins_setup.sh | zsh
+	curl -OL https://github.com/MoonLightElf/unix_shell_plugins_setup/raw/main/zsh_plugins/zsh_plugins_setup.sh
+	 zsh zsh_plugins_setup.sh 
 	## chmod +x  zsh_plugins_setup.sh
 	## /bin/zsh  zsh_plugins_setup.sh
 	rm ./zsh_plugins_setup.sh
