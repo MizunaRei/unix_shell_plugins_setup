@@ -92,19 +92,19 @@ function zsh_setup() {
 
 
 function shells_setup() {
-	if [[ "$unix_shell_name"==*"bash"* ]]
+	if [[ "$unix_shell_name"=~*"bash"* ]]
 	then
 	echo " \n Setting up bash plugins. \n "
 	bash_setup
 	fi
 
-	if [[ "$unix_shell_name"==*"fish"* ]]
+	if [[ "$unix_shell_name"=~*"fish"* ]]
 	then
 	echo " \n Setting up fish plugins. \n "
 	fish_setup
 	fi
 
-	if [[ "$unix_shell_name"==*"zsh"* ]]
+	if [[ "$unix_shell_name"=~*"zsh"* ]]
 	then
 	echo " \n Setting up zsh plugins. \n "
 	zsh_setup
