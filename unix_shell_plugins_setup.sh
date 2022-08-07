@@ -49,6 +49,7 @@ function main() {
 	## if [[ "$REPLY"=~^[Qq]$ ]]
 if [[ "$REPLY"==q || "$REPLY"==Q ]]  
 	then
+	echo "will call exit_canceled_cleanup() "
 	exit_canceled_cleanup
 	## cd "$last_working_directory"
 	## echo "Nothing changed. If you like this script, please give it a star. "
