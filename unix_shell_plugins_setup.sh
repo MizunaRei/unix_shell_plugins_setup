@@ -2,9 +2,9 @@
 
 
 ## global variables
-shell_requirements = ' make gawk curl git '
-UNIX_SHELL_CONTRACTION = "a"
-UNIX_SHELL_NAME = " fish zsh bash "
+shell_requirements=' make gawk curl git '
+UNIX_SHELL_CONTRACTION="a"
+UNIX_SHELL_NAME=" fish zsh bash "
 
 
 function main() {
@@ -14,7 +14,7 @@ function main() {
 	## save user's current working directory
 	last_working_directory="$PWD"
 	## go to user home directory for default setup.
-	cd "$HOME" 
+	cd "$HOME"
 
 
 	## choose unix shells to setup
