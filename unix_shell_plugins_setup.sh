@@ -19,7 +19,7 @@ function main() {
 
 
 	## choose unix shells to setup
-	echo " \n Hello.  \n Which Unix shell do you use? \n  Press the first letter on keyboard.  \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "
+	echo " \n Hello.  \n Which Unix shell do you use? \n Press the first letter on keyboard.  \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit. \n "
 	## echo -e
 	## bash grammar  ## read -n 1 r unix_shell_contraction
 	while true; do 
@@ -54,6 +54,8 @@ function main() {
 	## cd "$last_working_directory"
 	## echo "Nothing changed. If you like this script, please give it a star. "
 	## exit
+	else
+	echo " \n Press the first letter on keyboard. \n "
 	fi
 done
 	distribution_detecting_shells_setup
