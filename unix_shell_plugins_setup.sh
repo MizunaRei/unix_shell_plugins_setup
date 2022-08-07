@@ -21,7 +21,7 @@ function main() {
 	echo " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "
 	## read -n 1 unix_shell_contraction
 	read REPLY
-	echo -e
+	## echo -e
 	## if [["$unix_shell_contraction" =~ ^[Aa]$]]
 	if [["$REPLY" =~ ^[Aa]$]]
 	then
