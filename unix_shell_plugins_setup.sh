@@ -21,37 +21,33 @@ function main() {
 	echo " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n " 
 	read -n 1  unix_shell_contraction
 	echo -e
-	if
-		[["$unix_shell_contraction" = ^[Aa]$]];
+	if [[ "$unix_shell_contraction" =~ ^[Aa]$ ]]
 
 	then
 	unix_shell_name="bash fish zsh"
 	fi
 
-	if
-		[["$unix_shell_contraction" =~ ^[Bb]$]]
+	if [["$unix_shell_contraction" =~ ^[Bb]$]]
 	then
 	unix_shell_name="bash"
 	fi
 
-	if
-		[["$unix_shell_contraction" =~ ^[Ff]$]]
+	if [["$unix_shell_contraction" =~ ^[Ff]$]]
 	then
 	unix_shell_name = "fish"
 	fi
 
-	if
-		[["$unix_shell_contraction" =~ ^[Zz]$]]
+	if [["$unix_shell_contraction" =~ ^[Zz]$]]
 	then
 	unix_shell_name = "zsh"
 	fi
 
-	if
-		[["$unix_shell_contraction" =~ ^[Qq]$]]
+	if [["$unix_shell_contraction" =~ ^[Qq]$]]
 	then
-	cd "$last_working_directory"
-	echo "Nothing changed. If you like this script, please give it a star. "
-	exit
+	exit_canceled_cleanup
+	## cd "$last_working_directory"
+	## echo "Nothing changed. If you like this script, please give it a star. "
+	## exit
 	fi
 
 	distribution_detecting_shells_setup
@@ -160,12 +156,19 @@ function distribution_detecting_shells_setup() {
 }
 
 
-function exiting_cleanup(){
-	echo "Setup completed. If you like this script, please give it a star. "
+function exit_succeeded_cleanup(){
+	echo "Setup completed. \n If you like this script, please give it a star. "
+	rm ./unix_shell_plugins_setup.sh
+	cd "$last_working_directory"
+	exit 0
+}
+
+
+function exit_canceled_cleanup(){
+	echo " \n Setup canceled. Your system  is not modified.  \n If you like this script, please give it a star. "
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit
-	
 }
 
 
