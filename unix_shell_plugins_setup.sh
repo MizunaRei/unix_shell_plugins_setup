@@ -2,9 +2,9 @@
 
 
 ## global variables
- shell_requirements=' make gawk curl git '
- UNIX_SHELL_CONTRACTION="a"
-UNIX_SHELL_NAME=" fish zsh bash "
+shell_requirements = ' make gawk curl git '
+UNIX_SHELL_CONTRACTION = "a"
+UNIX_SHELL_NAME = " fish zsh bash "
 
 
 function main() {
@@ -12,24 +12,24 @@ function main() {
 
 
 	## save user's current working directory
-	last_working_directory="$PWD"
+	last_working_directory = "$PWD"
 	## go to user home directory for default setup.
 	cd ~
 
 
 	## choose unix shells to setup
-	echo " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n " 
-	read -n 1  unix_shell_contraction
+	echo " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n "
+	read -n 1 unix_shell_contraction
 	echo -e
-	if [[ "$unix_shell_contraction" =~ ^[Aa]$ ]]
+	if [["$unix_shell_contraction" =~ ^[Aa]$]]
 
 	then
-	unix_shell_name="bash fish zsh"
+	unix_shell_name = "bash fish zsh"
 	fi
 
 	if [["$unix_shell_contraction" =~ ^[Bb]$]]
 	then
-	unix_shell_name="bash"
+	unix_shell_name = "bash"
 	fi
 
 	if [["$unix_shell_contraction" =~ ^[Ff]$]]
@@ -141,31 +141,31 @@ function distribution_detecting_shells_setup() {
 	pacman -S make gawk curl git "$unix_shell_name"
 	shells_setup
 	else
-		echo  " \n We could not determine what distribution you are running. Continue installation anyway? \n  " 
-		read -n 1  REPLY
+		echo " \n We could not determine what distribution you are running. Continue installation anyway? \n  "
+	read -n 1 REPLY
 	echo
-	if [[ "$REPLY" =~ ^[Yy]$ ]];
+	if [["$REPLY" =~ ^[Yy]$]];
 	then
 	shells_setup
 	else
-		cd "$last_working_directory"
-	echo "Nothing changed. If you like this script, please give it a star. "
-	exit
+		## cd "$last_working_directory"
+	## echo "Nothing changed. If you like this script, please give it a star. "
+	exit_canceled_cleanup
 	fi
 	fi
 }
 
 
-function exit_succeeded_cleanup(){
-	echo "Setup completed. \n If you like this script, please give it a star. "
+function exit_succeeded_cleanup() {
+	echo "Setup completed. \n If you like this script, please give it a star. \n "
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit 0
 }
 
 
-function exit_canceled_cleanup(){
-	echo " \n Setup canceled. Your system  is not modified.  \n If you like this script, please give it a star. "
+function exit_canceled_cleanup() {
+	echo " \n Setup canceled. Your system  is not modified.  \n If you like this script, please give it a star. \n "
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit
