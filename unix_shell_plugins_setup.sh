@@ -2,52 +2,52 @@
 
 
 ## global variables
-
 ## shell_requirements = 'make gawk curl git'
 ## UNIX_SHELL_CONTRACTION = "a"
 ## UNIX_SHELL_NAME = " fish zsh bash "
 
 
-
 function main() {
 	## same as main() function in C language
 
+
 	## save user's current working directory
-	LAST_WORKING_DIRECTORY = "$PWD"
+	last_working_directory = "$PWD"
 	## go to user home directory for default setup.
 	cd ~
 
+
 	## choose unix shells to setup
 	echo " \n Which Unix shell do you use? \n A. all of three shells \n B. bash \n F. fish \n Z. zsh \n \n Q. cancel setup and quit.  \n " 
-	read -n 1 -r unix_shell_contraction
+	read -n 1  unix_shell_contraction
 	echo -e
 	if
-		[[$unix_shell_contraction =~ ^[Aa]$]]
+		[["$unix_shell_contraction" =~ ^[Aa]$]]
 
 	then
 	unix_shell_name = "bash fish zsh"
 	fi
 
 	if
-		[[$unix_shell_contraction =~ ^[Bb]$]]
+		[["$unix_shell_contraction" =~ ^[Bb]$]]
 	then
 	unix_shell_name = "bash"
 	fi
 
 	if
-		[[$unix_shell_contraction =~ ^[Ff]$]]
+		[["$unix_shell_contraction" =~ ^[Ff]$]]
 	then
 	unix_shell_name = "fish"
 	fi
 
 	if
-		[[$unix_shell_contraction =~ ^[Zz]$]]
+		[["$unix_shell_contraction" =~ ^[Zz]$]]
 	then
 	unix_shell_name = "zsh"
 	fi
 
 	if
-		[[$unix_shell_contraction =~ ^[Qq]$]]
+		[["$unix_shell_contraction" =~ ^[Qq]$]]
 	then
 	cd "$last_working_directory"
 	echo "Nothing changed. If you like this script, please give it a star. "
@@ -145,7 +145,7 @@ function distribution_detecting_shells_setup() {
 	pacman -S make gawk curl git "$unix_shell_name"
 	shells_setup
 	else
-		read -p " \n We could not determine what distribution you are running. Continue installation anyway? \n  " -n 1 -r REPLY
+		read -p " \n We could not determine what distribution you are running. Continue installation anyway? \n  " -n 1  REPLY
 	echo
 	if [[ "$REPLY" =~ ^[Yy]$ ]];
 	then
