@@ -25,22 +25,22 @@ function main() {
 	## if [["$unix_shell_contraction" =~ ^[Aa]$]]
 	if [["$REPLY" =~ ^[Aa]$]]
 	then
-	unix_shell_name = "bash fish zsh"
+	unix_shell_name="bash fish zsh"
 	fi
 
 	if [["$REPLY" =~ ^[Bb]$]]
 	then
-	unix_shell_name = "bash"
+	unix_shell_name="bash"
 	fi
 
 	if [["$REPLY" =~ ^[Ff]$]]
 	then
-	unix_shell_name = "fish"
+	unix_shell_name="fish"
 	fi
 
 	if [["$REPLY" =~ ^[Zz]$]]
 	then
-	unix_shell_name = "zsh"
+	unix_shell_name="zsh"
 	fi
 
 	if [["$REPLY" =~ ^[Qq]$]]
