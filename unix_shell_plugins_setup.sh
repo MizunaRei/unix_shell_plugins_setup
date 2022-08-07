@@ -137,7 +137,7 @@ function distribution_detecting_shells_setup() {
 	zypper install make gawk curl git "$unix_shell_name"
 	shells_setup
 	elif
-	[[ "Arch"==`uname` || "manjaro"==`uname` || `uname`==*"arch"* || `uname`==*"manjaro"* || `uname`==*"arco"* || `uname`==*"artix"*]]
+	[[ "Arch"==`uname` || "manjaro"==`uname` || `uname`==*"arch"* || `uname`==*"manjaro"* || `uname`==*"arco"* || `uname`==*"artix"* ]]
 	then
 	pacman -S make gawk curl git "$unix_shell_name"
 	shells_setup
