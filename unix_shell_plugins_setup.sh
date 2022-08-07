@@ -22,16 +22,16 @@ function main() {
 	read -n 1  unix_shell_contraction
 	echo -e
 	if
-		[["$unix_shell_contraction" =~ ^[Aa]$]];
+		[["$unix_shell_contraction" = ^[Aa]$]];
 
 	then
-	unix_shell_name = "bash fish zsh"
+	unix_shell_name="bash fish zsh"
 	fi
 
 	if
 		[["$unix_shell_contraction" =~ ^[Bb]$]]
 	then
-	unix_shell_name = "bash"
+	unix_shell_name="bash"
 	fi
 
 	if
