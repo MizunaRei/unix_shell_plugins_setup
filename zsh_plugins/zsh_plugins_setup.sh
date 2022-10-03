@@ -7,7 +7,7 @@ last_working_directory=$PWD
 cd ~
 
 
-curl -o zshrc_default  -sL  https://github.com/MoonLightElf/unix_shell_plugins_setup/raw/main/zsh_plugins/zshrc_default
+curl -o zshrc_default  -sL  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zshrc_default
 cat zshrc_default >> ~/.zshrc
 rm ./zshrc_default
 
@@ -41,11 +41,11 @@ mv powerlevel10k ohmyzsh/custom/themes/
 cd ~/zsh-snap
 ln -s ohmyzsh/custom/themes/powerlevel10k/
 cd ~
-echo " \n \n Use this command to use powerlever10k theme. \n Or write this command into ~/.zshrc file. \n \n"
+echo " \n \n Use this command to use powerlevel10k theme. \n Or write this command into ~/.zshrc file. \n \n"
 echo "        znap prompt ohmyzsh/ohmyzsh powerlevel10k"
 echo " \n \n Use this command to use a random theme. \n Or write this command into ~/.zshrc file. \n \n"
 echo "        znap prompt ohmyzsh/ohmyzsh random"
-## install powerlever10k into ohmyzsh. EOF
+## install powerlevel10k into ohmyzsh. EOF
 
 
 ## install marlonrichert/zsh-autocomplete for fish like autosuggestion

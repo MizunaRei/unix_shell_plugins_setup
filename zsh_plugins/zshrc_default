@@ -25,7 +25,14 @@ setopt beep notify
 
 
 source ~/zsh-snap/zsh-snap/znap.zsh
-znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
-export ZSH="$HOME/zsh-snap/ohmyzsh" 
+
+
+## znap.zsh must be source loaded before znap command.
 znap source marlonrichert/zsh-autocomplete
-znap prompt ohmyzsh/ohmyzsh random
+
+
+# disable plugins below by default
+## znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
+## export ZSH="$HOME/zsh-snap/ohmyzsh" 
+## 
+## znap prompt ohmyzsh/ohmyzsh random

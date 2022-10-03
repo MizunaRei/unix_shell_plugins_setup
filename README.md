@@ -8,15 +8,13 @@
     https://github.com/ohmybash/oh-my-bash
     https://github.com/akinomyoga/ble.sh
     https://github.com/oh-my-fish/oh-my-fish
-    https://github.com/rcaloras/bashhub-client
-
+    
 
 ### Installation
-`curl -OL  https://github.com/MoonLightElf/unix_shell_plugins_setup/raw/main/unix_shell_plugins_setup.sh  &&  zsh unix_shell_plugins_setup.sh`
+`curl -OL  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/unix_shell_plugins_setup.sh  &&  zsh unix_shell_plugins_setup.sh`
+
 
 ### Why do we use these unix shell plugins?
 Zsh is mainly compatible with bash. One of the compatibility issues we know is that bash supports wild char in commands. For example, "apt install compiz*". Zsh does not. 
-
 The autosuggestion feature of fish is "friendly interactive". Marlonrichert and contributors implement the autocomplete feature for zsh, and it provides more detailed information than fish does. Fizsh is not so sophisticated. Cantino/mcfly only searches in history.
-
 Powerlevel10k provides more features than starship does.
