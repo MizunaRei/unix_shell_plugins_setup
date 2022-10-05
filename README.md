@@ -1,5 +1,5 @@
 # Unix_shell_plugins_setup
- Z shell plugins installer. It requires Zsh 5.7.1, Bash 5.1, fish shell 3.2, Git 2.8, cURL 7.76, or newer. This script includes the following plugins.
+ bash, zsh, fish shell plugins installer. It requires Zsh 5.7.1, Bash 5.1, fish shell 3.2, Git 2.8, cURL 7.76, or newer. This script includes the following plugins.
 
     https://github.com/marlonrichert/zsh-snap
     https://github.com/marlonrichert/zsh-autocomplete

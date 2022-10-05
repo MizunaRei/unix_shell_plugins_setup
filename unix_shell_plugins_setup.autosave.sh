@@ -28,7 +28,7 @@ function main() {
 	then
 		zsh-autocomplete-setup
 	fi
-	## zsh-autocomplete setup. EOF.
+	## zsh-autocomplete setup. End.
 
 
 	printf " \n Would you like to install ohmyzsh/ohmyzsh ? \n It is a delightful community-driven framework for managing your zsh configuration. Includes 300+ optional plugins,140+ themes. \n "
@@ -132,7 +132,7 @@ printf " \n \n Use this command to use powerlevel10k theme. \n Or write this com
 printf "        znap prompt ohmyzsh/ohmyzsh powerlevel10k"
 printf " \n \n Use this command to use a random theme. \n Or write this command into ~/.zshrc file. \n \n"
 printf "        znap prompt ohmyzsh/ohmyzsh random"
-## install powerlevel10k into ohmyzsh. EOF
+## install powerlevel10k into ohmyzsh. End
 }
 
 
@@ -144,7 +144,7 @@ znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
 printf 'znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}' >>~/.zshrc
 ## Path to your oh-my-zsh installation.
 printf 'export ZSH="$HOME/zsh-snap/ohmyzsh" ' >>~/.zshrc
-## install ohmyzsh via zsh-snap. EOF
+## install ohmyzsh via zsh-snap. End
 }
 
 function zsh-autocomplete-setup() {
@@ -161,7 +161,7 @@ chmod +x ~/zsh-snap/zsh-snap/znap.zsh
 source ~/zsh-snap/zsh-snap/znap.zsh
 ## use zshrc-default instead of echo zshrc.
 ## echo 'source ~/zsh-snap/zsh-snap/znap.zsh'>>~/.zshrc
-## install marlonrichert/zsh-snap and auto-complete. EOF
+## install marlonrichert/zsh-snap and auto-complete. End
 }
 
 

@@ -18,7 +18,7 @@ git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/zsh-snap/
 chmod +x ~/zsh-snap/zsh-snap/znap.zsh
 source ~/zsh-snap/zsh-snap/znap.zsh
 ## echo 'source ~/zsh-snap/zsh-snap/znap.zsh'>>~/.zshrc
-## install marlonrichert/zsh-snap . EOF
+## install marlonrichert/zsh-snap . End
 
 
 ## install ohmyzsh via zsh-snap. start
@@ -28,7 +28,7 @@ znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
 ## echo 'znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}' >>~/.zshrc
 ## Path to your oh-my-zsh installation.
 ## echo 'export ZSH="$HOME/zsh-snap/ohmyzsh" ' >>~/.zshrc
-## install ohmyzsh via zsh-snap. EOF
+## install ohmyzsh via zsh-snap. End
 
 
 ## install powerlevel10k into ohmyzsh. start
@@ -45,7 +45,7 @@ echo " \n \n Use this command to use powerlevel10k theme. \n Or write this comma
 echo "        znap prompt ohmyzsh/ohmyzsh powerlevel10k"
 echo " \n \n Use this command to use a random theme. \n Or write this command into ~/.zshrc file. \n \n"
 echo "        znap prompt ohmyzsh/ohmyzsh random"
-## install powerlevel10k into ohmyzsh. EOF
+## install powerlevel10k into ohmyzsh. End
 
 
 ## install marlonrichert/zsh-autocomplete for fish like autosuggestion
