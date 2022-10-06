@@ -123,7 +123,7 @@ function oh-my-fish-setup(){
 printf "\n Setting up oh-my-fish/oh-my-fish . \n "
 	## if [ "$(which fish)"=1 ]
 	## above if statement failed.
-	if [ -e "$(which fish)" ]; then
+	if [ test -e "$(which fish)" ]; then
 	
 		
 				
@@ -142,8 +142,8 @@ printf "\n Setting up oh-my-fish/oh-my-fish . \n "
 function ble-sh-setup() {
 	printf " \n Setting up akinomyoga/ble.sh . \n "
 	## detect gawk make
-	if [ -e "$(which gawk)" ]; then
-		if [ -e "$(which make)" ]; then
+	if [ test -e "$(which gawk)" ]; then
+		if [ test -e "$(which make)" ]; then
 			printf " \n NOTE: Please visit software project homepage for installation guide.  \n https://github.com/akinomyoga/ble.sh \n "
 			## ble.sh official installer
 		git clone --recursive --depth=1 https://github.com/akinomyoga/ble.sh.git
