@@ -110,7 +110,7 @@ fi
 
 
 function exiting_cleanup() {
-	printf " \n Setup completed. \n  Open a new terminal window to enjoy it. If unix shell went wrong, please follow this guide. \n  https://github.com/marlonrichert/zsh-autocomplete#manual-installation  \n You may try to rename or delete dotfiles such as ~/.zshrc , ~/.zprofile , ~/.p10k.zsh , and the folder of plugins (default path is ~/zsh-snap ) . \n Then execute this script again.  \n If you like this script, please give it a star on its home page. \n "
+	printf " \n Setup completed. \n  Open a new terminal window to enjoy it. If unix shell went wrong, please follow this guide. \n  \n https://github.com/marlonrichert/zsh-autocomplete#manual-installation   \n \n You may try to rename or delete dotfiles such as ~/.zshrc , ~/.zprofile , ~/.p10k.zsh , and the folder of plugins (default path is ~/zsh-snap ) . \n Then execute this script again.  \n If you like this script, please give it a star on its home page. \n "
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit 0
