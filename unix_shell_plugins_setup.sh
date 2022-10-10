@@ -149,7 +149,9 @@ function ble-sh-setup() {
 		git clone --recursive --depth=1 https://github.com/akinomyoga/ble.sh.git
 	make -C ble.sh install PREFIX=~/.local
 	curl -OL https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/bash_plugins/ble.sh_bashrc_default
+	printf " \n \n " >> ~/.bashrc
 	cat ble.sh_bashrc_default >> ~/.bashrc
+	printf " \n \n " >> ~/.bashrc
 	rm ./ble.sh_bashrc_default
 	printf " \n akinomyoga/ble.sh was installed. \n "
 		else
@@ -209,7 +211,9 @@ function zsh-autocomplete-setup() {
 printf " \n Setting up marlonrichert/zsh-autocomplete. \n "
 ## copy zsh plugins  default settings to ~/.zshrc 
 	curl -o zshrc_default  -sL  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zshrc_default
+printf " \n \n " >> ~/.zshrc
 cat zshrc_default >> ~/.zshrc
+printf " \n \n " >> ~/.zshrc
 rm ./zshrc_default
 
 
@@ -291,7 +295,9 @@ function bash_setup() {
 	git clone --recursive --depth=1 https://github.com/akinomyoga/ble.sh.git
 	make -C ble.sh install PREFIX=~/.local
 	curl -OL https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/bash_plugins/ble.sh_bashrc_default
+	printf " \n \n " >> ~/.bashrc
 	cat ble.sh_bashrc_default >> ~/.bashrc
+	printf " \n \n " >> ~/.bashrc
 	rm ./ble.sh_bashrc_default
 	curl -OL https://bashhub.com/setup && bash setup
 	rm ./setup
