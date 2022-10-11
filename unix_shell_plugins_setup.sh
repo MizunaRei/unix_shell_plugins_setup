@@ -16,9 +16,17 @@ function main() {
 	## same as main() function in C language
 
 
-	## greetings
-	 printf " \n Welcome. This script could help you with setting up some awesome plugins for bash, zsh, and fish shell. For more information please read software homepage. \n \n https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup \n \n "
 	## echo -e ## I do not know what this command do.
+	
+	
+	if [  -e "$(which git)" ]; then
+		## greetings
+	 printf " \n Welcome. This script could help you with setting up some awesome plugins for bash, zsh, and fish shell. For more information please read software homepage. \n \n https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup \n \n "
+
+	else
+	printf " \n We could not find git binary file.  \n Please install git by package manager i.e. Homebrew. \n " 
+exit 1
+	fi
 	
 
 	## zsh-autocomlete setup. start.
@@ -148,11 +156,13 @@ function ble-sh-setup() {
 			## ble.sh official installer
 		git clone --recursive --depth=1 https://github.com/akinomyoga/ble.sh.git
 	make -C ble.sh install PREFIX=~/.local
-	curl -OL https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/bash_plugins/ble.sh_bashrc_default
-	printf " \n \n " >> ~/.bashrc
-	cat ble.sh_bashrc_default >> ~/.bashrc
-	printf " \n \n " >> ~/.bashrc
-	rm ./ble.sh_bashrc_default
+	echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
+	## ble.sh official installer uses echo command. printf is better.
+	## curl -OL https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/bash_plugins/ble.sh_bashrc_default
+	## printf " \n \n " >> ~/.bashrc
+	## cat ble.sh_bashrc_default >> ~/.bashrc
+	## printf " \n \n " >> ~/.bashrc
+	## rm ./ble.sh_bashrc_default
 	printf " \n akinomyoga/ble.sh was installed. \n "
 		else
 			printf " \n We could not find make ( GNU make ) binary file.  \n Please install make by package manager i.e. Homebrew. \n " 
