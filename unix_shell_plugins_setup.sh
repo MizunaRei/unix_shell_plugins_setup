@@ -81,10 +81,10 @@ else
     #echo No
     printf " \n Skipped ohmybash/oh-my-bash installation. \n "
 fi
-	# oh-my-bash setup. End.
+	## oh-my-bash setup. End.
 
 
-	# ble.sh setup. start.
+	## ble.sh setup. start.
 	printf " \n Would you like to install akinomyoga/ble.sh ? [y/n]  \n It is a full-featured line editor. Syntax highlighting, auto suggestions, vim modes, etc. are available in Bash interactive sessions. \n "
 	read answer
  # if echo "$answer" | grep -iq "^y" ;then
@@ -95,7 +95,7 @@ else
     #echo No
     printf " \n Skipped akinomyoga/ble.sh installation. \n "
 fi
-	 ble.sh setup. End.
+	## ble.sh setup. End.
 	 
 
 	## oh-my-fish setup. start.
@@ -110,6 +110,20 @@ else
     printf " \n Skipped oh-my-fish/oh-my-fish installation. \n "
 fi
 	# oh-my-fish setup. End.
+
+
+## bashhub.com setup. start.
+	printf " \n Would you like to install rcaloras/bashhub-client ? [y/n]  \n It is Bash history in the cloud. Indexed and searchable. \n If you prefer open source self-hosted private server, here we go. \n \n https://github.com/nicksherron/bashhub-server \n  \n "
+	read answer
+ # if echo "$answer" | grep -iq "^y" ;then
+ if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+    #echo Yes
+    bashhub-client-setup
+else
+    #echo No
+    printf " \n Skipped rcaloras/bashhub-client installation. \n "
+fi
+## bashhub.com setup. End.
 
 
 		## fzf setup. start.
@@ -131,6 +145,13 @@ fi
 }
 
 
+bashhub-client-setup(){
+	printf " \n Setting up rcaloras/bashhub-client . \n "
+	curl -OL https://bashhub.com/setup && zsh setup
+printf " \n rcaloras/bashhub-client was installed. \n "
+}
+
+
 fzf-ripgrep-bat-vscode-integration-setup(){
 if [  -e "$(which ripgrep)" ]; then
 	if [  -e "$(which gawk)" ]; then
@@ -142,6 +163,7 @@ printf " \n \n " >> ~/.zshrc
 cat fif.sh >> ~/.zshrc
 printf " \n \n " >> ~/.zshrc
 rm ./fif.sh
+printf " \n fzf-ripgrep-bat-vscode-integration was installed. \n "
 
 				else
 				printf " \n We could not find bat ( sharkdp/bat ) binary file.  \n Please install bat by package manager i.e. Homebrew. \n " 
