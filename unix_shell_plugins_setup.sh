@@ -110,10 +110,68 @@ else
     printf " \n Skipped oh-my-fish/oh-my-fish installation. \n "
 fi
 	# oh-my-fish setup. End.
+
+
+		## fzf setup. start.
+	printf " \n Would you like to install junegunn/fzf ? [y/n]  \n It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc. \n "
+	read answer
+ # if echo "$answer" | grep -iq "^y" ;then
+ if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+    #echo Yes
+    fzf-setup
+else
+    #echo No
+    printf " \n Skipped junegunn/fzf installation. \n "
+fi
+	# fzf setup. End.
 	
 
 	## clean up before exiting this script.
 	exiting_cleanup
+}
+
+
+fzf-ripgrep-bat-vscode-integration-setup(){
+if [  -e "$(which ripgrep)" ]; then
+	if [  -e "$(which gawk)" ]; then
+
+				if [  -e "$(which bat)" ]; then
+				printf " \n NOTE: Press Control+O to open file in VSCode on previewing screen. \n "
+					curl -o  fif.sh  -sL  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/plugins/fif.sh
+printf " \n \n " >> ~/.zshrc
+cat fif.sh >> ~/.zshrc
+printf " \n \n " >> ~/.zshrc
+rm ./fif.sh
+
+				else
+				printf " \n We could not find bat ( sharkdp/bat ) binary file.  \n Please install bat by package manager i.e. Homebrew. \n " 
+				fi
+	else 
+		printf " \n We could not find gawk ( GNU awk ) binary file.  \n Please install gawk by package manager i.e. Homebrew. \n "
+	fi
+else 
+		printf " \n We could not find ripgrep ( BurntSushi/ripgrep ) binary file.  \n Please install ripgrep by package manager i.e. Homebrew. \n "
+fi
+}
+
+
+function fzf-setup(){
+	printf "\n Setting up junegunn/fzf . \n "
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install
+
+printf " \n Would you like to install fzf-ripgrep-bat-vscode-integration ? [y/n]  \n You could preview colored search result and open that file in Visual Studio Code . \n "
+	read answer
+ # if echo "$answer" | grep -iq "^y" ;then
+ if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+    #echo Yes
+    fzf-ripgrep-bat-vscode-integration-setup
+else
+printf " \n Skipped fzf-ripgrep-bat-vscode-integration installation. \n "
+
+fi
+
+	printf " \n junegunn/fzf was installed. \n "
 }
 
 
