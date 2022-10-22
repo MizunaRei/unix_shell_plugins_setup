@@ -9,6 +9,8 @@
     https://github.com/ohmybash/oh-my-bash
     https://github.com/akinomyoga/ble.sh
     https://github.com/oh-my-fish/oh-my-fish
+    https://github.com/rcaloras/bashhub-client
+    https://github.com/nicksherron/bashhub-server
     https://github.com/junegunn/fzf
     https://github.com/BurntSushi/ripgrep
     https://github.com/sharkdp/bat
