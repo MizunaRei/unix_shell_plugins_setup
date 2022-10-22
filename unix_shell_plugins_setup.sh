@@ -146,33 +146,35 @@ fi
 
 
 bashhub-client-setup(){
+	if [  -e "$(which python3)" ]; then
 	printf " \n Setting up rcaloras/bashhub-client . \n "
 	curl -OL https://bashhub.com/setup && zsh setup
-printf " \n rcaloras/bashhub-client was installed. \n "
+	printf " \n rcaloras/bashhub-client was installed. \n "
+	else
+	printf " \n We could not find python3 binary file.  \n Please install python3 by package manager i.e. Homebrew. \n " 
+	fi
 }
 
 
 fzf-ripgrep-bat-vscode-integration-setup(){
 if [  -e "$(which ripgrep)" ]; then
 	if [  -e "$(which gawk)" ]; then
-
-				if [  -e "$(which bat)" ]; then
-				printf " \n NOTE: Press Control+O to open file in VSCode on previewing screen. \n "
-					curl -o  fif.sh  -sL  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/plugins/fif.sh
-printf " \n \n " >> ~/.zshrc
-cat fif.sh >> ~/.zshrc
-printf " \n \n " >> ~/.zshrc
-rm ./fif.sh
-printf " \n fzf-ripgrep-bat-vscode-integration was installed. \n "
-
-				else
-				printf " \n We could not find bat ( sharkdp/bat ) binary file.  \n Please install bat by package manager i.e. Homebrew. \n " 
-				fi
+		if [  -e "$(which bat)" ]; then
+		printf " \n NOTE: Press Control+O to open file in VSCode on previewing screen. \n "
+		curl -o  fif.sh  -sL  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/plugins/fif.sh
+		printf " \n \n " >> ~/.zshrc
+		cat fif.sh >> ~/.zshrc
+		printf " \n \n " >> ~/.zshrc
+		rm ./fif.sh
+		printf " \n fzf-ripgrep-bat-vscode-integration was installed. \n "
+		else
+		printf " \n We could not find bat ( sharkdp/bat ) binary file.  \n Please install bat by package manager i.e. Homebrew. \n " 
+		fi
 	else 
-		printf " \n We could not find gawk ( GNU awk ) binary file.  \n Please install gawk by package manager i.e. Homebrew. \n "
+	printf " \n We could not find gawk ( GNU awk ) binary file.  \n Please install gawk by package manager i.e. Homebrew. \n "
 	fi
 else 
-		printf " \n We could not find ripgrep ( BurntSushi/ripgrep ) binary file.  \n Please install ripgrep by package manager i.e. Homebrew. \n "
+printf " \n We could not find ripgrep ( BurntSushi/ripgrep ) binary file.  \n Please install ripgrep by package manager i.e. Homebrew. \n "
 fi
 }
 
