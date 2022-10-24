@@ -165,6 +165,9 @@ if [  -e "$(which ripgrep)" ]; then
 		printf " \n \n " >> ~/.zshrc
 		cat fif.sh >> ~/.zshrc
 		printf " \n \n " >> ~/.zshrc
+		printf " \n \n " >> ~/.bashrc
+		cat fif.sh >> ~/.bashrc
+		printf " \n \n " >> ~/.bashrc		
 		rm ./fif.sh
 		printf " \n fzf-ripgrep-bat-vscode-integration was installed. \n "
 		else
@@ -251,28 +254,27 @@ function ble-sh-setup() {
 		fi
 	else 
 		printf " \n We could not find gawk ( GNU awk ) binary file.  \n Please install gawk by package manager i.e. Homebrew. \n "
-	fi
-	
-}
-
-
-function oh-my-bash-enable-random-theme(){
-	printf " \n Would you like to enable random theme for oh-my-bash ? \n "
-	if [  -e "$(which sed)" ]; then
-	
-	else
-	printf " \n We could not find sed binary file.  \n Please install gawk by package manager i.e. Homebrew. \n " 
-	fi
-
+	fi	
 }
 
 
 function oh-my-bash-setup(){
-	printf " \n Setting up ohmybash/oh-my-bash . \n "
-	## oh-my-bash official installer
-	bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-	rm ./install.sh
-	printf " \n ohmybash/oh-my-bash was installed. \n "
+printf " \n Setting up ohmybash/oh-my-bash . \n "
+## oh-my-bash official installer
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+rm ./install.sh
+printf " \n ohmybash/oh-my-bash was installed. \n "
+printf " \n Would you like to enable random theme for oh-my-bash ? \n "
+read answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+	if [  -e "$(which sed)" ]; then
+	sed -i '' 's/OSH_THEME=\"font\"/OSH_THEME=\"random\"/g'  ~/.bashrc	
+	else
+	printf " \n We could not find sed (GNU stream editor) binary file.  \n Please install sed by package manager i.e. Homebrew. \n " 
+	fi
+else
+printf " \n The default theme of oh-my-bash is enabled. \n "
+fi
 }
 
 
