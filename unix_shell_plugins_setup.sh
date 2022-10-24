@@ -256,6 +256,17 @@ function ble-sh-setup() {
 }
 
 
+function oh-my-bash-enable-random-theme(){
+	printf " \n Would you like to enable random theme for oh-my-bash ? \n "
+	if [  -e "$(which sed)" ]; then
+	
+	else
+	printf " \n We could not find sed binary file.  \n Please install gawk by package manager i.e. Homebrew. \n " 
+	fi
+
+}
+
+
 function oh-my-bash-setup(){
 	printf " \n Setting up ohmybash/oh-my-bash . \n "
 	## oh-my-bash official installer
