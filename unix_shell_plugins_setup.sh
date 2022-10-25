@@ -288,10 +288,26 @@ printf 'znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}' >> ~/.zshrc
 printf 'export ZSH="$HOME/zsh-snap/ohmyzsh" ' >> ~/.zshrc
 printf " \n ohmyzsh/ohmyzsh was installed. \n "
 ## install ohmyzsh via zsh-snap. End
+
+
+# powerlevel10k setup. start.
+	printf " \n Would you like to install romkatv/powerlevel10k as ohmyzsh plugin ? [y/n]  \n It is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience. \n "
+	read answer
+ # if echo "$answer" | grep -iq "^y" ;then
+ if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+    #echo Yes
+    powerlevel10k-setup
+else
+    #echo No
+    printf " \n Skipped romkatv/powerlevel10k installation. \n "
+fi
+	# powerlevel10k setup. End.
+## install powerlevel10k. end.
 }
 
 
 function zsh-plugins-setup() {
+## install marlonrichert/zsh-snap . start
 printf " \n Setting up marlonrichert/zsh-snap . \n "
 ## copy zsh plugins  default settings to ~/.zshrc 
 	curl -o zshrc_default  -sL  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zshrc_default
@@ -300,8 +316,7 @@ cat zshrc_default >> ~/.zshrc
 printf " \n \n " >> ~/.zshrc
 rm ./zshrc_default
 
-
-## install marlonrichert/zsh-snap . start
+## zsh-snap official installer
 printf " \n \n Please keep the default installation directory unless you know what you are doing. \n \n"
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/zsh-snap/zsh-snap
 chmod +x ~/zsh-snap/zsh-snap/znap.zsh
@@ -340,22 +355,9 @@ else
     printf " \n Skipped ohmyzsh/ohmyzsh installation. \n "
 fi
 	# ohmyzsh setup. ENd.
-	
-	
-	# powerlevel10k setup. start.
-	printf " \n Would you like to install romkatv/powerlevel10k ? [y/n]  \n It is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience. \n "
-	read answer
- # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
-    #echo Yes
-    powerlevel10k-setup
-else
-    #echo No
-    printf " \n Skipped romkatv/powerlevel10k installation. \n "
-fi
-	# powerlevel10k setup. End.
-## install powerlevel10k. end.
 }
+	
+	
 
 
 function zsh-autocomplete-setup() {
