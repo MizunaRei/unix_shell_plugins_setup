@@ -277,7 +277,7 @@ printf " \n romkatv/powerlevel10k was installed. \n "
 }
 
 
-function ohmyzsh-setup() {
+function ohmyzsh_setup() {
 printf " \n Setting up ohmyzsh/ohmyzsh. \n "
 	## install ohmyzsh via zsh-snap. start
 ## Install ohmyzsh outside zsh-snap may cause compatibility issues between ohmyzsh and zsh-snap. 
@@ -334,7 +334,7 @@ fi
  # if echo "$answer" | grep -iq "^y" ;then
  if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
-    ohmyzsh-setup
+    ohmyzsh_setup
 else
     #echo No
     printf " \n Skipped ohmyzsh/ohmyzsh installation. \n "
