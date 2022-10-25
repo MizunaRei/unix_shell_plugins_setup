@@ -138,7 +138,7 @@ bashhub-client-setup(){
 
 fzf-ripgrep-bat-vscode-integration-setup(){
 if [  -e "$(which ripgrep)" ]; then
-	if [  -e "$(which gawk)" ]; then
+	if [  -e "$(which awk)" ]; then
 		if [  -e "$(which bat)" ]; then
 		printf " \n NOTE: Press Control+O to open file in VSCode on previewing screen. \n "
 		curl -o  fif.sh  -sL  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/plugins/fif.sh
@@ -154,7 +154,7 @@ if [  -e "$(which ripgrep)" ]; then
 		printf " \n We could not find bat ( sharkdp/bat ) binary file.  \n Please install bat by package manager i.e. Homebrew. \n " 
 		fi
 	else 
-	printf " \n We could not find gawk ( GNU awk ) binary file.  \n Please install gawk by package manager i.e. Homebrew. \n "
+	printf " \n We could not find awk ( GNU awk ) binary file.  \n Please install awk by package manager i.e. Homebrew. \n "
 	fi
 else 
 printf " \n We could not find ripgrep ( BurntSushi/ripgrep ) binary file.  \n Please install ripgrep by package manager i.e. Homebrew. \n "
@@ -213,8 +213,8 @@ printf "\n Setting up oh-my-fish/oh-my-fish . \n "
 
 function ble-sh-setup() {
 	printf " \n Setting up akinomyoga/ble.sh . \n "
-	## detect gawk make
-	if [  -e "$(which gawk)" ]; then
+	## detect gnu awk make
+	if [  -e "$(which awk)" ]; then
 		if [  -e "$(which make)" ]; then
 			printf " \n NOTE: Please visit software project homepage for installation guide.  \n https://github.com/akinomyoga/ble.sh \n "
 			## ble.sh official installer
@@ -229,10 +229,10 @@ function ble-sh-setup() {
 	## rm ./ble.sh_bashrc_default
 	printf " \n akinomyoga/ble.sh was installed. \n "
 		else
-			printf " \n We could not find make ( GNU make ) binary file.  \n Please install make by package manager i.e. Homebrew. \n " 
+			printf " \n We could not find make ( GNU make aka gmake ) binary file.  \n Please install make by package manager i.e. Homebrew. \n " 
 		fi
 	else 
-		printf " \n We could not find gawk ( GNU awk ) binary file.  \n Please install gawk by package manager i.e. Homebrew. \n "
+		printf " \n We could not find awk ( GNU awk ) binary file.  \n Please install awk by package manager i.e. Homebrew. \n "
 	fi	
 }
 
