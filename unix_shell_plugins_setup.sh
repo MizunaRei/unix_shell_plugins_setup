@@ -164,13 +164,14 @@ fi
 
 function fzf-setup(){
 	printf "\n Setting up junegunn/fzf . \n "
+	## fzf official installer
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 
 printf " \n Would you like to install fzf-ripgrep-bat-vscode-integration ? [y/n]  \n You could preview colored search result and open that file in Visual Studio Code . \n "
 	read answer
- # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
     fzf-ripgrep-bat-vscode-integration-setup
 else
