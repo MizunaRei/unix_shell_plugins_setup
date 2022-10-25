@@ -314,15 +314,15 @@ printf " \n marlonrichert/zsh-snap was installed. \n "
 
 
 ## marlonrichert/zsh-autocomplete setup . start.
-printf " \n Would you like to install ohmyzsh/ohmyzsh ? [y/n]  \n It is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n "
+printf " \n Would you like to install marlonrichert/zsh-autocomplete ? [y/n]  \n It is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n "
 	read answer
  # if echo "$answer" | grep -iq "^y" ;then
  if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
-    ohmyzsh-setup
+    zsh-autocomplete-setup
 else
     #echo No
-    printf " \n Skipped ohmyzsh/ohmyzsh installation. \n "
+    printf " \n Skipped marlonrichert/zsh-autocomplete installation. \n "
 fi
 ## marlonrichert/zsh-autocomplete setup . end .
 
