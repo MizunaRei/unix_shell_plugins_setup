@@ -359,7 +359,7 @@ fi
 
 
 function zsh-autocomplete-setup() {
-	printf " \n \n \n  # enable zsh-autocomplete " >> ~/.zshrc
+	printf " \n \n \n  # enable zsh-autocomplete by zsh-snap " >> ~/.zshrc
 printf " znap source marlonrichert/zsh-autocomplete "  >> ~/.zshrc
 printf " \n \n " >> ~/.zshrc
 }
