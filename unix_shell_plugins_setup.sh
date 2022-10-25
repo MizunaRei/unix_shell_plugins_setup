@@ -37,32 +37,7 @@ fi
 ## zsh-plugins setup. End.
 
 
-	# ohmyzsh setup. start.
-	printf " \n Would you like to install ohmyzsh/ohmyzsh ? [y/n]  \n It is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n "
-	read answer
- # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then 
-    #echo Yes
-    ohmyzsh-setup
-else
-    #echo No
-    printf " \n Skipped ohmyzsh/ohmyzsh installation. \n "
-fi
-	# ohmyzsh setup. ENd.
 	
-	
-	# powerlevel10k setup. start.
-	printf " \n Would you like to install romkatv/powerlevel10k ? [y/n]  \n It is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience. \n "
-	read answer
- # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
-    #echo Yes
-    powerlevel10k-setup
-else
-    #echo No
-    printf " \n Skipped romkatv/powerlevel10k installation. \n "
-fi
-	# powerlevel10k setup. End.
 	
 	# oh-my-bash setup . Start.
 	printf " \n Would you like to install ohmybash/oh-my-bash ? [y/n]  \n It is a delightful community-driven framework for managing your bash configuration. \n "
@@ -338,9 +313,47 @@ printf " \n marlonrichert/zsh-snap was installed. \n "
 ## install marlonrichert/zsh-snap . End
 
 
+## marlonrichert/zsh-autocomplete setup . start.
+printf " \n Would you like to install ohmyzsh/ohmyzsh ? [y/n]  \n It is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n "
+	read answer
+ # if echo "$answer" | grep -iq "^y" ;then
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
+    #echo Yes
+    ohmyzsh-setup
+else
+    #echo No
+    printf " \n Skipped ohmyzsh/ohmyzsh installation. \n "
+fi
+## marlonrichert/zsh-autocomplete setup . end .
+
 
 ## install oh-my-zsh . start
-
+# ohmyzsh setup. start.
+	printf " \n Would you like to install ohmyzsh/ohmyzsh ? [y/n]  \n It is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n "
+	read answer
+ # if echo "$answer" | grep -iq "^y" ;then
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
+    #echo Yes
+    ohmyzsh-setup
+else
+    #echo No
+    printf " \n Skipped ohmyzsh/ohmyzsh installation. \n "
+fi
+	# ohmyzsh setup. ENd.
+	
+	
+	# powerlevel10k setup. start.
+	printf " \n Would you like to install romkatv/powerlevel10k ? [y/n]  \n It is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience. \n "
+	read answer
+ # if echo "$answer" | grep -iq "^y" ;then
+ if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+    #echo Yes
+    powerlevel10k-setup
+else
+    #echo No
+    printf " \n Skipped romkatv/powerlevel10k installation. \n "
+fi
+	# powerlevel10k setup. End.
 ## install powerlevel10k. end.
 }
 
