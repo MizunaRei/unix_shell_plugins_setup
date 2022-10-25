@@ -314,7 +314,7 @@ printf " \n marlonrichert/zsh-snap was installed. \n "
 
 
 ## marlonrichert/zsh-autocomplete setup . start.
-printf " \n Would you like to install marlonrichert/zsh-autocomplete ? [y/n]  \n It is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n "
+printf " \n Would you like to install marlonrichert/zsh-autocomplete ? [y/n]  \n It adds real-time type-ahead autocompletion to Zsh.  \n "
 	read answer
  # if echo "$answer" | grep -iq "^y" ;then
  if [ "$answer" != "${answer#[Yy]}" ] ;then 
@@ -355,6 +355,13 @@ else
 fi
 	# powerlevel10k setup. End.
 ## install powerlevel10k. end.
+}
+
+
+function zsh-autocomplete-setup() {
+	printf " \n \n " >> ~/.zshrc
+cat zshrc_default >> ~/.zshrc
+printf " \n \n " >> ~/.zshrc
 }
 
 
