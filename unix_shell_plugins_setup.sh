@@ -4,12 +4,6 @@
 ## global variables
 	## save user's current working directory
 	export last_working_directory="$PWD"
-	
-	
-## export unix_shell_requirements=' make gawk curl git  ruby puthon3 '
-## export unix_shell_contraction="a"
-## export unix_shell_name=" fish zsh bash "
-## export unix_distribution_name=`uname`
 
 
 function main() {
@@ -29,25 +23,25 @@ exit 1
 	fi
 	
 
-	## zsh-autocomlete setup. start.
-	printf " \n Would you like to install zsh plugins ? [y/n] \n It is real-time type-ahead completion for Zsh. Asynchronous find-as-you-type autocompletion. \n "
+	## zsh-plugins setup. start.
+	printf " \n Would you like to install zsh plugins ? [y/n] \n They make shell look pretty and help you work easier. \n "
 	read answer
- # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
-    zsh-autocomplete-setup
+    zsh-plugins-setup
 else
     #echo No
-    printf " \n Skipped marlonrichert/zsh-autocomplete installation. \n "
+    printf " \n Skipped zsh plugins installation. \n "
 fi
-## zsh-autocomplete setup. End.
+## zsh-plugins setup. End.
 
 
 	# ohmyzsh setup. start.
 	printf " \n Would you like to install ohmyzsh/ohmyzsh ? [y/n]  \n It is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n "
 	read answer
  # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
     ohmyzsh-setup
 else
@@ -322,8 +316,8 @@ printf " \n ohmyzsh/ohmyzsh was installed. \n "
 }
 
 
-function zsh-autocomplete-setup() {
-printf " \n Setting up marlonrichert/zsh-autocomplete. \n "
+function zsh-plugins-setup() {
+printf " \n Setting up marlonrichert/zsh-snap . \n "
 ## copy zsh plugins  default settings to ~/.zshrc 
 	curl -o zshrc_default  -sL  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zshrc_default
 printf " \n \n " >> ~/.zshrc
@@ -332,16 +326,17 @@ printf " \n \n " >> ~/.zshrc
 rm ./zshrc_default
 
 
-## install marlonrichert/zsh-snap and auto-complete. start
+## install marlonrichert/zsh-snap . start
 printf " \n \n Please keep the default installation directory unless you know what you are doing. \n \n"
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/zsh-snap/zsh-snap
 chmod +x ~/zsh-snap/zsh-snap/znap.zsh
 source ~/zsh-snap/zsh-snap/znap.zsh
-## use zshrc-default instead of echo >> zshrc.
+## use zshrc-default instead of echo >> zshrc . echo does not support text format well.
 ## echo 'source ~/zsh-snap/zsh-snap/znap.zsh' >> ~/.zshrc
-## zshrc-default includes zsh-autocomplete.
-printf " \n marlonrichert/zsh-autocomplete was installed. \n "
-## install marlonrichert/zsh-snap and auto-complete. End
+## zshrc-default should not includes zsh-autocomplete.
+printf " \n marlonrichert/zsh-snap was installed. \n "
+## install marlonrichert/zsh-snap . End
+
 
 
 ## install oh-my-zsh . start
