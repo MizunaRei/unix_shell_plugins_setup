@@ -18,7 +18,7 @@ cd "$HOME"
 	 printf " \n Welcome. This script could help you with setting up some awesome plugins for bash, zsh, and fish shell. \n  For more information please visit homepage. \n \n https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup \n \n "
 
 	else
-	printf " \n We could not find git binary file.  \n Please install git by package manager i.e. Homebrew. \n " 
+	printf " \n We could not find git executable file.  \n Please install git by package manager i.e. Homebrew. \n " 
 exit 1
 	fi
 	
@@ -120,7 +120,7 @@ function thefuck-setup(){
 	pip3 install thefuck
 	printf " \n nvbn/thefuck was installed. \n "
 	else
-	printf " \n We could not find pip3 binary file.  \n Please install pip3 by package manager i.e. Homebrew. \n " 
+	printf " \n We could not find pip3 executable file.  \n Please install pip3 by package manager i.e. Homebrew. \n " 
 	fi
 }
 
@@ -131,7 +131,7 @@ bashhub-client-setup(){
 	curl -OL https://bashhub.com/setup && zsh setup 
 	printf " \n rcaloras/bashhub-client was installed. \n "
 	else
-	printf " \n We could not find python3 binary file.  \n Please install python3 by package manager i.e. Homebrew. \n " 
+	printf " \n We could not find python3 executable file.  \n Please install python3 by package manager i.e. Homebrew. \n " 
 	fi
 }
 
@@ -151,13 +151,13 @@ if [  -e "$(which ripgrep)" ]; then
 		rm ./fif.sh
 		printf " \n fzf-ripgrep-bat-vscode-integration was installed. \n "
 		else
-		printf " \n We could not find bat ( sharkdp/bat ) binary file.  \n Please install bat by package manager i.e. Homebrew. \n " 
+		printf " \n We could not find bat ( sharkdp/bat ) executable file.  \n Please install bat by package manager i.e. Homebrew. \n " 
 		fi
 	else 
-	printf " \n We could not find awk ( GNU awk ) binary file.  \n Please install awk by package manager i.e. Homebrew. \n "
+	printf " \n We could not find awk ( GNU awk ) executable file.  \n Please install awk by package manager i.e. Homebrew. \n "
 	fi
 else 
-printf " \n We could not find ripgrep ( BurntSushi/ripgrep ) binary file.  \n Please install ripgrep by package manager i.e. Homebrew. \n "
+printf " \n We could not find ripgrep ( BurntSushi/ripgrep ) executable file.  \n Please install ripgrep by package manager i.e. Homebrew. \n "
 fi
 }
 
@@ -205,7 +205,7 @@ printf "\n Setting up oh-my-fish/oh-my-fish . \n "
 		rm ./install
 		printf " \n oh-my-fish/oh-my-fish was installed. \n "
 	else
-	printf " \n We could not find fish shell binary file.  \n Please install fish shell by package manager i.e. Homebrew. \n "
+	printf " \n We could not find fish shell executable file.  \n Please install fish shell by package manager i.e. Homebrew. \n "
 	fi
 	
 }
@@ -229,10 +229,10 @@ function ble-sh-setup() {
 	## rm ./ble.sh_bashrc_default
 	printf " \n akinomyoga/ble.sh was installed. \n "
 		else
-			printf " \n We could not find make ( GNU make aka gmake ) binary file.  \n Please install make by package manager i.e. Homebrew. \n " 
+			printf " \n We could not find make ( GNU make aka gmake ) executable file.  \n Please install make by package manager i.e. Homebrew. \n " 
 		fi
 	else 
-		printf " \n We could not find awk ( GNU awk ) binary file.  \n Please install awk by package manager i.e. Homebrew. \n "
+		printf " \n We could not find awk ( GNU awk ) executable file.  \n Please install awk by package manager i.e. Homebrew. \n "
 	fi	
 }
 
@@ -249,7 +249,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
 	if [  -e "$(which sed)" ]; then
 	sed -i '' 's/OSH_THEME=\"font\"/OSH_THEME=\"random\"/g'  ~/.bashrc	
 	else
-	printf " \n We could not find sed (GNU stream editor) binary file.  \n Please install sed by package manager i.e. Homebrew. \n " 
+	printf " \n We could not find sed (GNU stream editor) executable file.  \n Please install sed by package manager i.e. Homebrew. \n " 
 	fi
 else
 printf " \n The default theme of oh-my-bash is enabled. \n "
