@@ -304,7 +304,7 @@ printf "\n Setting up oh-my-fish/oh-my-fish . \n "
 	## oh-my-fish official installer start
 		printf " \n Please press Y to install over existing installation. \n "
 		curl -OL https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
-		printf "exit" >> ./install
+		printf " \n exit" >> ./install
 		fish ./install
 		rm ./install
 		printf " \n oh-my-fish/oh-my-fish was installed. \n "
