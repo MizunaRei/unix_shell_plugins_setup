@@ -6,3 +6,4 @@ source fisher
 fisher install jorgebucaran/fisher
 rm ./fisher
 rm ./fisher_installation.fish
+exit
