@@ -2,8 +2,8 @@
 
 
 ## global variables
-	## save user's current working directory
-	export last_working_directory="$PWD"
+## save user's current working directory
+export last_working_directory="$PWD"
 
 
 function main() {
@@ -13,20 +13,18 @@ function main() {
 cd "$HOME"
 		
 	
-	if [  -e "$(which git)" ]; then
-		## greetings
-	 printf " \n Welcome. This script could help you with setting up some awesome plugins for bash, zsh, and fish shell. \n  For more information please visit homepage. \n \n https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup \n \n "
-
-	else
-	printf " \n We could not find git executable file.  \n Please install git by package manager i.e. Homebrew. \n " 
+if [  -e "$(which git)" ]; then
+## greetings
+ printf " \n Welcome. This script could help you with setting up some awesome plugins for bash, zsh, and fish shell. \n  For more information please visit homepage. \n \n https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup \n \n "
+else
+printf " \n We could not find git executable file.  \n Please install git by package manager i.e. Homebrew. \n " 
 exit 1
-	fi
+fi
 	
 
-	## zsh-plugins setup. start.
-	printf " \n Would you like to install zsh plugins ? [y/n] \n They make shell look pretty and help you work easier. \n "
-	read answer
- 
+## zsh-plugins setup. start.
+printf " \n Would you like to install zsh plugins ? [y/n] \n They make shell look pretty and help you work easier. \n "
+read answer
  if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
     zsh-plugins-setup
@@ -42,8 +40,8 @@ fi
 	# oh-my-bash setup . Start.
 	printf " \n Would you like to install ohmybash/oh-my-bash ? [y/n]  \n It is a delightful community-driven framework for managing your bash configuration. \n "
 	read answer
- # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
     oh-my-bash-setup
 else
@@ -56,8 +54,8 @@ fi
 	## ble.sh setup. start.
 	printf " \n Would you like to install akinomyoga/ble.sh ? [y/n]  \n It is a full-featured line editor.  \n Syntax highlighting, auto suggestions, vim modes, etc.  \n are available in Bash interactive sessions. \n "
 	read answer
- # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
     ble-sh-setup
 else
@@ -65,13 +63,27 @@ else
     printf " \n Skipped akinomyoga/ble.sh installation. \n "
 fi
 	## ble.sh setup. End.
+
+
+		## rupa/z setup. start.
+	printf " \n Would you like to install rupa/z for bash and zsh ? [y/n]  \n It tracks your most used directories, based on 'frecency'. \n "
+	read answer
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
+    #echo Yes
+    rupa_z_setup
+else
+    #echo No
+    printf " \n Skipped rupa/z for bash and zsh installation. \n "
+fi
+	## rupa/z setup. End.
 	 
 
 	## oh-my-fish setup. start.
 	printf " \n Would you like to install oh-my-fish/oh-my-fish ? [y/n]  \n It provides core infrastructure to allow you to install packages \n which extend or modify the look of your shell. \n  It's fast, extensible and easy to use. \n "
 	read answer
- # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
     oh-my-fish-setup
 else
@@ -81,11 +93,25 @@ fi
 	# oh-my-fish setup. End.
 
 
+## fish plugins setup. start.
+	printf " \n Would you like to install fish plugins? [y/n] \n They extend or modify the look of your shell. \n \n "
+	read answer
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
+    #echo Yes
+    fish_plugins_setup
+else
+    #echo No
+    printf " \n Skipped fish shell plugins installation. \n "
+fi
+	# fish plugins setup. End.
+
+
 ## bashhub.com setup. start.
 	printf " \n Would you like to install rcaloras/bashhub-client ? [y/n]  \n It is Bash history in the cloud. Indexed and searchable. \n If you prefer open source self-hosted private server, here we go. \n \n https://github.com/nicksherron/bashhub-server \n  \n "
 	read answer
- # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
     bashhub-client-setup
 else
@@ -98,8 +124,8 @@ fi
 		## fzf setup. start.
 	printf " \n Would you like to install junegunn/fzf ? [y/n]  \n It's an interactive Unix filter for command-line that can be used with \n any list; files, command history, processes, hostnames, bookmarks, git commits, etc. \n "
 	read answer
- # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
     fzf-setup
 else
@@ -114,6 +140,86 @@ fi
 }
 
 
+function rupa_z_setup(){
+printf " \n Setting up rupa/z for bash and zsh \n "
+git clone --depth=1 https://github.com/rupa/z.git ~/zsh-snap/z
+	printf " \n \n " >> ~/.zshrc
+		cat ~/zsh-snap/z/z.sh >> ~/.zshrc
+		printf " \n \n " >> ~/.zshrc
+		printf " \n \n " >> ~/.bashrc
+		cat ~/zsh-snap/z/z.sh >> ~/.bashrc
+		printf " \n \n " >> ~/.bashrc
+	printf " \n rupa/z for bash and zsh was installed. \n "
+
+
+
+}
+
+
+function fish_plugins_setup(){
+	## fisher_installation start
+	printf " \n Setting up jorgebucaran/fisher . \n "
+	## if [ "$(which fish)"=1 ]
+	## prerious if statement failed.
+	if [  -e "$(which fish)" ]; then
+		## fisher official installer start
+		curl -OL https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/fisher_installation.fish
+	fish ./fisher_installation.fish
+	rm ./fisher
+	rm ./fisher_installation.fish	
+		printf " \n jorgebucaran/fisher was installed. \n "
+	else
+	printf " \n We could not find fish shell executable file.  \n Please install fish shell by package manager i.e. Homebrew. \n "
+	fi
+	
+## fisher_installation end
+
+
+## jorgebucaran/autopair.fish setup start
+printf " \n Would you like to install jorgebucaran/autopair.fish ? [y/n] \n It automatically insert, erase, and skip matching pairs(brackets) as you type in fish. \n \n "
+	read answer
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
+    #echo Yes
+    autopair_fish_setup
+else
+    #echo No
+    printf " \n Skipped jorgebucaran/autopair.fish installation. \n "
+
+fi
+## jorgebucaran/autopair.fish setup end 
+
+
+## jethrokuan/z setup start
+printf " \n Would you like to install jethrokuan/z for fish ? [y/n] \n It tracks the directories you visit. \n With a combination of frequency and recency, \n it enables you to jump to the directory in mind. \n \n "
+	read answer
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
+    #echo Yes
+    jethrokuan_z_setup
+else
+    #echo No
+    printf " \n Skipped jethrokuan/z for fish installation. \n "
+
+fi
+
+## jethrokuan/z setup end
+}
+
+function jethrokuan_z_setup(){
+	printf " \n Setting up jethrokuan/z \n "
+	fisher install jethrokuan/z
+	printf " \n jethrokuan/z was installed. \n "
+}
+
+
+function autopair_fish_setup(){
+	printf " \n Setting up jorgebucaran/autopair.fish \n "
+	fisher install jorgebucaran/autopair.fish
+	printf " \n jorgebucaran/autopair.fish was installed. \n "
+}
+
+
 function thefuck-setup(){
 	if [  -e "$(which pip3)" ]; then
 	printf " \n Setting up nvbn/thefuck . \n "
@@ -125,7 +231,7 @@ function thefuck-setup(){
 }
 
 
-bashhub-client-setup(){
+function bashhub-client-setup(){
 	if [  -e "$(which python3)" ]; then
 	printf " \n Setting up rcaloras/bashhub-client . \n "
 	curl -OL https://bashhub.com/setup && zsh setup 
@@ -136,7 +242,7 @@ bashhub-client-setup(){
 }
 
 
-fzf-ripgrep-bat-vscode-integration-setup(){
+function fzf-ripgrep-bat-vscode-integration-setup(){
 if [  -e "$(which ripgrep)" ]; then
 	if [  -e "$(which awk)" ]; then
 		if [  -e "$(which bat)" ]; then
@@ -183,31 +289,25 @@ fi
 }
 
 
-function exiting_cleanup() {
-	printf " \n Setup completed. \n  Open a new terminal window to enjoy it.  \n If unix shell went wrong, please follow this guide. \n  \n https://github.com/marlonrichert/zsh-autocomplete#manual-installation   \n \n You may try to rename or delete dotfiles such as ~/.zshrc , ~/.zprofile , ~/.p10k.zsh , and the folder of plugins ( usually at ~/ ) . \n Then execute this script again.  \n \n  If you like this script, please give it a star on its home page. \n \n "
-	rm ./unix_shell_plugins_setup.sh
-	cd "$last_working_directory"
-	exit 0
-}
+
 
 
 function oh-my-fish-setup(){
 printf "\n Setting up oh-my-fish/oh-my-fish . \n "
 	## if [ "$(which fish)"=1 ]
-	## above if statement failed.
+	## prerious if statement failed.
 	if [  -e "$(which fish)" ]; then
 	
 		
 				
-	## oh-my-fish official installer
+	## oh-my-fish official installer start
 		printf " \n Please press Y to install over existing installation. \n "
 		curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 		rm ./install
 		printf " \n oh-my-fish/oh-my-fish was installed. \n "
 	else
 	printf " \n We could not find fish shell executable file.  \n Please install fish shell by package manager i.e. Homebrew. \n "
-	fi
-	
+	fi	
 }
 
 
@@ -294,8 +394,8 @@ printf " \n ohmyzsh/ohmyzsh was installed. \n "
 # powerlevel10k setup. start.
 	printf " \n Would you like to install romkatv/powerlevel10k as ohmyzsh plugin ? [y/n]  \n It is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience. \n "
 	read answer
- # if echo "$answer" | grep -iq "^y" ;then
- if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
+ 
+ if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
     powerlevel10k-setup
 else
@@ -332,7 +432,7 @@ printf " \n marlonrichert/zsh-snap was installed. \n "
 ## marlonrichert/zsh-autocomplete setup . start.
 printf " \n Would you like to install marlonrichert/zsh-autocomplete ? [y/n]  \n It adds real-time type-ahead autocompletion to Zsh.  \n "
 	read answer
- # if echo "$answer" | grep -iq "^y" ;then
+ 
  if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
     zsh-autocomplete-setup
@@ -347,7 +447,7 @@ fi
 # ohmyzsh setup. start.
 	printf " \n Would you like to install ohmyzsh/ohmyzsh ? [y/n]  \n It is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n "
 	read answer
- # if echo "$answer" | grep -iq "^y" ;then
+ 
  if [ "$answer" != "${answer#[Yy]}" ] ;then 
     #echo Yes
     ohmyzsh_setup
@@ -370,6 +470,14 @@ printf " \n \n " >> ~/.zshrc
 
 function exit_succeeded_cleanup() {
 	echo "Setup completed. \n If you like this script, please give it a star. \n "
+	rm ./unix_shell_plugins_setup.sh
+	cd "$last_working_directory"
+	exit 0
+}
+
+
+function exiting_cleanup() {
+	printf " \n Setup completed. \n  Open a new terminal window to enjoy it.  \n If unix shell went wrong, please follow this guide. \n  \n https://github.com/marlonrichert/zsh-autocomplete#manual-installation   \n \n You may try to rename or delete dotfiles such as ~/.zshrc , ~/.zprofile , ~/.p10k.zsh , and the folder of plugins ( usually at ~/ ) . \n Then execute this script again.  \n \n  If you like this script, please give it a star on its home page. \n \n "
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit 0

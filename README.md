@@ -8,13 +8,14 @@
     https://github.com/romkatv/powerlevel10k
     https://github.com/ohmybash/oh-my-bash
     https://github.com/akinomyoga/ble.sh
+    https://github.com/rupa/z
     https://github.com/oh-my-fish/oh-my-fish
     https://github.com/jorgebucaran/fisher
     https://github.com/jorgebucaran/autopair.fish
+    https://github.com/jethrokuan/z
     https://github.com/nvbn/thefuck
     https://github.com/rcaloras/bashhub-client
     https://github.com/nicksherron/bashhub-server
-    https://github.com/jethrokuan/z
     https://github.com/junegunn/fzf
     https://github.com/BurntSushi/ripgrep
     https://github.com/sharkdp/bat
