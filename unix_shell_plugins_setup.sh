@@ -165,8 +165,9 @@ function fish_plugins_setup(){
 		## fisher official installer start
 		curl -OL https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/fisher_installation.fish
 	fish ./fisher_installation.fish
-	rm ./fisher
-	rm ./fisher_installation.fish	
+	## call rm in script itself
+	## rm ./fisher
+	## rm ./fisher_installation.fish	
 		printf " \n jorgebucaran/fisher was installed. \n "
 	else
 	printf " \n We could not find fish shell executable file.  \n Please install fish shell by package manager i.e. Homebrew. \n "
@@ -302,7 +303,9 @@ printf "\n Setting up oh-my-fish/oh-my-fish . \n "
 				
 	## oh-my-fish official installer start
 		printf " \n Please press Y to install over existing installation. \n "
-		curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+		curl -OL https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
+		printf "exit" >> ./install
+		fish ./install
 		rm ./install
 		printf " \n oh-my-fish/oh-my-fish was installed. \n "
 	else
