@@ -14,6 +14,7 @@
     https://github.com/nvbn/thefuck
     https://github.com/rcaloras/bashhub-client
     https://github.com/nicksherron/bashhub-server
+    https://github.com/jethrokuan/z
     https://github.com/junegunn/fzf
     https://github.com/BurntSushi/ripgrep
     https://github.com/sharkdp/bat
