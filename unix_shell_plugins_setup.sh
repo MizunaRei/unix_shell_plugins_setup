@@ -136,13 +136,14 @@ function main() {
 
 function rupa_z_setup() {
 	printf " \n Setting up rupa/z for bash and zsh \n "
-	git clone --depth=1 https://github.com/rupa/z.git ~/zsh-snap/z
-	printf " \n \n " >>~/.zshrc
-	cat ~/zsh-snap/z/z.sh >>~/.zshrc
-	printf " \n \n " >>~/.zshrc
-	printf " \n \n " >>~/.bashrc
-	cat ~/zsh-snap/z/z.sh >>~/.bashrc
-	printf " \n \n " >>~/.bashrc
+	git clone --depth=1 https://github.com/rupa/z.git ~/zsh-snap/z/
+	printf " \n \n source ~/zsh-snap/z/z.sh \n \n " >>~/.zshrc
+	## save z.sh to another file.
+	# cat ~/zsh-snap/z/z.sh >>~/.zshrc
+	# printf " \n \n " >>~/.zshrc
+	printf " \n \n source ~/zsh-snap/z/z.sh \n \n " >>~/.bashrc
+	# cat ~/zsh-snap/z/z.sh >>~/.bashrc
+	# printf " \n \n " >>~/.bashrc
 	printf " \n rupa/z for bash and zsh was installed. \n "
 
 }
