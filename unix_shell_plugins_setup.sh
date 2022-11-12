@@ -367,8 +367,6 @@ function powerlevel10k-setup() {
 	cd ~
 	printf " \n \n Use this command to use powerlevel10k theme. \n Or write this command into ~/.zshrc file. \n \n"
 	printf "        znap prompt ohmyzsh/ohmyzsh powerlevel10k"
-	printf " \n \n Use this command to use a random theme. \n Or write this command into ~/.zshrc file. \n \n"
-	printf "        znap prompt ohmyzsh/ohmyzsh random"
 	printf " \n romkatv/powerlevel10k was installed. \n "
 	## install powerlevel10k into ohmyzsh. End
 }
@@ -382,6 +380,23 @@ function ohmyzsh_setup() {
 	printf 'znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}' >>~/.zshrc
 	## Path to your oh-my-zsh installation.
 	printf 'export ZSH="$HOME/zsh-snap/ohmyzsh" ' >>~/.zshrc
+		
+		## zsh random theme . start.
+		printf " \n \n Use this command to use a random theme. \n Or write this command into ~/.zshrc file. \n \n"
+	printf "        znap prompt ohmyzsh/ohmyzsh random"
+	printf " \n Would you like to enable random theme for zsh ? [y/n] \n "
+	read answer
+
+	if [ "$answer" != "${answer#[Yy]}" ]; then
+		#echo Yes
+		printf " \n znap prompt ohmyzsh/ohmyzsh random \n " >>~/.zshrc
+echo " \n random theme for zsh is enabled. \n "
+	else
+		#echo No
+		printf " \n default theme of ohmyzsh is enabled. \n "
+	fi
+		## zsh random theme . End.
+
 	printf " \n ohmyzsh/ohmyzsh was installed. \n "
 	## install ohmyzsh via zsh-snap. End
 
