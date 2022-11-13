@@ -1,7 +1,7 @@
 
 
 export OSH="$HOME/.oh-my-bash"
-
+source "$OSH"/oh-my-bash.sh
 OSH_THEME="font"
 
 OMB_USE_SUDO=true
@@ -21,4 +21,4 @@ plugins=(
   bashmarks
 )
 
-source "$OSH"/oh-my-bash.sh
+
