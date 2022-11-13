@@ -179,7 +179,7 @@ function fish_plugins_setup() {
 	## fisher_installation end
 
 	## jorgebucaran/autopair.fish setup start
-	printf " \n Would you like to install jorgebucaran/autopair.fish ? [y/n] \n It automatically insert, erase, and skip matching pairs(brackets) as you type in fish. \n \n"
+	printf " \n jorgebucaran/autopair.fish automatically insert, erase, and skip matching pairs(brackets) as you type in fish. \n \n Would you like to install jorgebucaran/autopair.fish ? [y/n] \n"
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
@@ -193,7 +193,7 @@ function fish_plugins_setup() {
 	## jorgebucaran/autopair.fish setup end
 
 	## jethrokuan/z setup start
-	printf " \n Would you like to install jethrokuan/z for fish ? [y/n] \n It tracks the directories you visit. \n With a combination of frequency and recency, \n it enables you to jump to the directory in mind. \n \n"
+	printf " \n jethrokuan/z tracks the directories you visit. \n With a combination of frequency and recency, \n it enables you to jump to the directory in mind. \n \n Would you like to install jethrokuan/z for fish ? [y/n] \n"
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
@@ -286,7 +286,7 @@ function fzf-setup() {
 		rm ./fzf_install
 		printf " \n junegunn/fzf was installed. \n"
 		## install fzf before installing the integration
-		printf " \n Would you like to install fzf-ripgrep-bat-vscode-integration ? [y/n]  \n You could preview colored search result and open that file in Visual Studio Code . \n"
+		printf " \n This plugin helps you preview colored search result and open that file in Visual Studio Code . \n\n Would you like to install fzf-ripgrep-bat-vscode-integration ? [y/n]  \n"
 		read answer
 		if [ "$answer" != "${answer#[Yy]}" ]; then
 			#echo Yes
@@ -394,7 +394,7 @@ function powerlevel10k-setup() {
 	# printf " \n romkatv/powerlevel10k was installed. \n"
 	
 	## powerlevel10k official installer
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH"/custom/themes/powerlevel10k
 	if [ -e "$(which sed)" ]; then
 			## perl command output nothing
 			## perl -pe 's/OSH_THEME=\K\d+/random/' ~/.bashrc > ~/.bashrc
@@ -462,7 +462,7 @@ printf " \n random theme for zsh is enabled. \n"
 	## install ohmyzsh via zsh-snap. End
 
 	# powerlevel10k setup. start.
-	printf " \n Would you like to install romkatv/powerlevel10k as ohmyzsh plugin ? [y/n]  \n It is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience. \n"
+	printf " \n romkatv/powerlevel10k is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience. \n\n Would you like to install romkatv/powerlevel10k as ohmyzsh theme ? [y/n]  \n"
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
@@ -503,7 +503,7 @@ function zsh-plugins-setup() {
 	printf " \n \n" >>~/.zshrc
 	printf 'export ZSH="$HOME/.oh-my-zsh/" ' >>~/.zshrc
 	  ## termux on Android does not load ohmyzsh on startup.
-        printf " \n source ~/.zshrc " >>~/.zprofile
+       # printf " \n source ~/.zshrc " >>~/.zprofile
 
 	## install marlonrichert/zsh-snap . start
 	printf " \n Setting up marlonrichert/zsh-snap . \n"
@@ -527,7 +527,7 @@ function zsh-plugins-setup() {
 	## install marlonrichert/zsh-snap . End
 
 	## marlonrichert/zsh-autocomplete setup . start.
-	printf " \n Would you like to install marlonrichert/zsh-autocomplete ? [y/n]  \n It adds real-time type-ahead autocompletion to Zsh.  \n"
+	printf " \n marlonrichert/zsh-autocomplete adds real-time type-ahead autocompletion to Zsh.  \n\n Would you like to install marlonrichert/zsh-autocomplete ? [y/n]  \n"
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
@@ -541,7 +541,7 @@ function zsh-plugins-setup() {
 
 	## install oh-my-zsh . start
 	# ohmyzsh setup. start.
-	printf " \n Would you like to install ohmyzsh/ohmyzsh ? [y/n]  \n It is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n"
+	printf " \n ohmyzsh/ohmyzsh is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n\n Would you like to install ohmyzsh/ohmyzsh ? [y/n]  \n"
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
@@ -563,7 +563,7 @@ function exit_succeeded_cleanup() {
 }
 
 function exiting_cleanup() {
-	printf " \n Setup completed. \n  Open a new terminal window to enjoy it.  \n If unix shell went wrong, please follow this guide. \n  \n https://github.com/marlonrichert/zsh-autocomplete#manual-installation   \n \n You may try to rename or delete dotfiles such as ~/.zshrc , ~/.zprofile , ~/.p10k.zsh , and the folder of plugins ( usually at ~/ ) . \n Then execute this script again.  \n \n  If you like this script, please give it a star on its home page. \n \n"
+	printf " \n Setup completed. \n  Open a new terminal window to enjoy it.  \n If unix shell went wrong, please follow this guide. \n  \n https://github.com/marlonrichert/zsh-autocomplete#manual-installation   \n \n You may try to rename or delete dotfiles such as ~/.zshrc , ~/.zprofile , ~/.p10k.zsh , ~/.bashrc , ~/.bash_profile, conf.fish , and the folder of plugins ( usually at ~/ ) . \n Then execute this script again.  \n \n  If you like this script, please give it a star on its home page. \n \n"
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit 0
