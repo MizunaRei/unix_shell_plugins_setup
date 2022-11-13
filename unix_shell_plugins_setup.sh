@@ -18,8 +18,8 @@ function main() {
 	printf " \n \n" >>~/.bashrc
 	printf 'export OSH="$HOME/.oh-my-bash/" ' >>~/.bashrc
 
-## termux on Android does not load zshrc
-printf " \n source ~/.zshrc " >>~/.zprofile
+## termux on Android does not load zshrc because ohmyzsh path
+# printf " \n source ~/.zshrc " >>~/.zprofile
 
 
 
