@@ -3,6 +3,7 @@
 ## global variables
 ## save user's current working directory
 export last_working_directory="$PWD"
+export ZSH="$HOME/.oh-my-zsh"
 
 function main() {
 	## same as main() function in C language
@@ -136,12 +137,12 @@ function main() {
 
 function rupa_z_setup() {
 	printf " \n Setting up rupa/z for bash and zsh \n"
-	git clone --depth=1 https://github.com/rupa/z.git ~/zsh-snap/z/
-	printf " \n \n source ~/zsh-snap/z/z.sh \n \n" >>~/.zshrc
+	git clone --depth=1 https://github.com/rupa/z.git ~/Git/z/
+	printf " \n \n source ~/Git/z/z.sh \n \n" >>~/.zshrc
 	## save z.sh to another file.
 	# cat ~/zsh-snap/z/z.sh >>~/.zshrc
 	# printf " \n \n" >>~/.zshrc
-	printf " \n \n source ~/zsh-snap/z/z.sh \n \n" >>~/.bashrc
+	printf " \n \n source ~/Git/z/z.sh \n \n" >>~/.bashrc
 	# cat ~/zsh-snap/z/z.sh >>~/.bashrc
 	# printf " \n \n" >>~/.bashrc
 	printf " \n rupa/z for bash and zsh was installed. \n"
@@ -155,7 +156,7 @@ function fish_plugins_setup() {
 	## prerious if statement failed.
 	if [ -e "$(which fish)" ]; then
 		## fisher official installer start
-		curl -kO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/fisher_installation.fish
+		curl -fsSLO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/fisher_installation.fish
 		fish ./fisher_installation.fish
 		## call rm in script itself
 		## rm ./fisher
@@ -199,7 +200,7 @@ function fish_plugins_setup() {
 
 function jethrokuan_z_setup() {
 	printf " \n Setting up jethrokuan/z \n"
-	curl -kO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/z_installation.fish
+	curl -fsSLO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/z_installation.fish
 	fish ./z_installation.fish
 	rm ./z_installation.fish
 	printf " \n jethrokuan/z was installed. \n"
@@ -207,7 +208,7 @@ function jethrokuan_z_setup() {
 
 function autopair_fish_setup() {
 	printf " \n Setting up jorgebucaran/autopair.fish \n"
-	curl -kO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/autopair_installation.fish
+	curl -fsSLO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/autopair_installation.fish
 	fish ./autopair_installation.fish
 	rm ./autopair_installation.fish
 	printf " \n jorgebucaran/autopair.fish was installed. \n"
@@ -226,7 +227,7 @@ function thefuck_setup() {
 function bashhub-client-setup() {
 	if [ -e "$(which python)" ]; then
 		printf " \n Setting up rcaloras/bashhub-client . \n"
-		curl -kO https://bashhub.com/setup
+		curl -fsSLO https://bashhub.com/setup
 		printf " \n exit " >>./setup
 		zsh ./setup
 		rm ./setup
@@ -241,7 +242,7 @@ function fzf-ripgrep-bat-vscode-integration-setup() {
 		if [ -e "$(which awk)" ]; then
 			if [ -e "$(which bat)" ]; then
 				printf " \n NOTE: Press Control+O to open file in VSCode on previewing screen. \n"
-				curl -kO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/plugins/fif.sh
+				curl -fsSLO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/plugins/fif.sh
 				printf " \n \n" >>~/.zshrc
 				cat fif.sh >>~/.zshrc
 				printf " \n \n" >>~/.zshrc
@@ -291,7 +292,7 @@ function oh-my-fish-setup() {
 	if [ -e "$(which fish)" ]; then
 		## oh-my-fish official installer start
 		printf " \n Please press Y to install over existing installation. \n"
-		curl -kO https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install
+		curl -fsSLO https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install
 		## make sure fish exit and go back to zsh shell after installing oh-my-fish
 		printf " \n exit" >>./install
 		fish ./install
@@ -331,11 +332,15 @@ function oh-my-bash-setup() {
 	printf " \n Setting up ohmybash/oh-my-bash . \n"
 	## oh-my-bash official installer
 	## bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-	# curl -kO https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh
+	# curl -fsSLO https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh
 	## bash will not exit after installing oh-my-bash
 	# printf " \n exit" >>./install.sh
 	# bash ./install.sh
 	# rm ./install.sh
+	git clone --depth=1 https://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash/
+	curl -fsSLO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/bash_plugins/oh-my-bash_bashrc_default
+	printf " \n" >>~/.bashrc
+	cat oh-my-bash_bashrc_default >>~/.bashrc
 	printf " \n ohmybash/oh-my-bash was installed. \n"
 	printf " \n Would you like to enable random theme for oh-my-bash ? [y/n] \n"
 	read answer
@@ -371,7 +376,7 @@ function powerlevel10k-setup() {
 	# printf " \n romkatv/powerlevel10k was installed. \n"
 	
 	## powerlevel10k official installer
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 	if [ -e "$(which sed)" ]; then
 			## perl command output nothing
 			## perl -pe 's/OSH_THEME=\K\d+/random/' ~/.bashrc > ~/.bashrc
@@ -388,7 +393,7 @@ function powerlevel10k-setup() {
 
 function ohmyzsh_setup_by_ohmyzsh_offical_installer(){
 	printf " \n Setting up ohmyzsh/ohmyzsh. \n"
-	 curl -kO https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+	 curl -fsSLO https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 	## zsh will not exit after installing ohmyzsh, therefore plugins_setup will be interupted.
 	# printf " \n exit" >>./install.sh
 	 zsh ./install.sh
@@ -455,7 +460,7 @@ printf " \n random theme for zsh is enabled. \n"
 
 function zsh-autocomplete-setup() {
 	## fish-like autocomplete by these 3 plugins . start.
-	curl -kO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zsh-autocomplete-setup.sh
+	curl -fsSLO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zsh-autocomplete-setup.sh
 	printf " \n \n" >>~/.zshrc
 	cat ./zsh-autocomplete-setup.sh >>~/.zshrc
 	printf " \n \n" >>~/.zshrc
@@ -467,7 +472,7 @@ function zsh-plugins-setup() {
 	## install marlonrichert/zsh-snap . start
 	printf " \n Setting up marlonrichert/zsh-snap . \n"
 	## copy zsh plugins  default settings to ~/.zshrc
-	curl -kO  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zshrc_default
+	curl -fsSLO  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zshrc_default
 	printf " \n \n" >>~/.zshrc
 	cat zshrc_default >>~/.zshrc
 	printf " \n \n" >>~/.zshrc
