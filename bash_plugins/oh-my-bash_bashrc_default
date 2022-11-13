@@ -1,7 +1,4 @@
-#case $- in
-#  *i*) ;;
-#    *) return;;
-#esac
+
 
 export OSH="$HOME/.oh-my-bash"
 
