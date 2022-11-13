@@ -13,15 +13,9 @@ function main() {
 	cd "$HOME"
 
 	## write global variables to zshrc
-	printf " \n \n" >>~/.zshrc
-	printf 'export ZSH="$HOME/.oh-my-zsh/" ' >>~/.zshrc
-	printf " \n \n" >>~/.bashrc
-	printf 'export OSH="$HOME/.oh-my-bash/" ' >>~/.bashrc
-
-        ## termux on Android does not load zshrc because ohmyzsh path
-        printf " \n source ~/.zshrc " >>~/.zprofile
-
-
+	
+	
+      
 
 	if [ -e "$(which git)" ]; then
 		## greetings
@@ -32,7 +26,7 @@ function main() {
 	fi
 
 	## zsh-plugins setup. start.
-	printf " \n Would you like to install zsh plugins ? [y/n] \n They make shell look pretty and help you work easier. \n"
+	printf " \n zsh plugins make shell look pretty and help you work easier. \n \n Would you like to install zsh plugins ? [y/n] \n"
 	read answer
 	if [ "$answer" != "${answer#[Yy]}" ]; then
 		#echo Yes
@@ -44,7 +38,7 @@ function main() {
 	## zsh-plugins setup. End.
 
 	# oh-my-bash setup . Start.
-	printf " \n Would you like to install ohmybash/oh-my-bash ? [y/n]  \n It is a delightful community-driven framework for managing your bash configuration. \n"
+	printf " \n ohmybash/oh-my-bash is a delightful community-driven framework for managing your bash configuration. \n \n Would you like to install ohmybash/oh-my-bash ? [y/n]  \n"
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
@@ -57,7 +51,7 @@ function main() {
 	## oh-my-bash setup. End.
 
 	## ble.sh setup. start.
-	printf " \n Would you like to install akinomyoga/ble.sh ? [y/n]  \n It is a full-featured line editor.  \n Syntax highlighting, auto suggestions, vim modes, etc.  \n are available in Bash interactive sessions. \n"
+	printf " \n akinomyoga/ble.sh is a full-featured line editor.  \n Syntax highlighting, auto suggestions, vim modes, etc.  \n are available in Bash interactive sessions. \n \n Would you like to install akinomyoga/ble.sh ? [y/n]  \n"
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
@@ -68,22 +62,10 @@ function main() {
 		printf " \n Skipped akinomyoga/ble.sh installation. \n"
 	fi
 	## ble.sh setup. End.
-
-	## rupa/z setup. start.
-	printf " \n Would you like to install rupa/z for bash and zsh ? [y/n]  \n It tracks your most used directories, based on 'frecency'. \n"
-	read answer
-
-	if [ "$answer" != "${answer#[Yy]}" ]; then
-		#echo Yes
-		rupa_z_setup
-	else
-		#echo No
-		printf " \n Skipped rupa/z for bash and zsh installation. \n"
-	fi
-	## rupa/z setup. End.
+	
 
 	## oh-my-fish setup. start.
-	printf " \n Would you like to install oh-my-fish/oh-my-fish ? [y/n]  \n It provides core infrastructure to allow you to install packages \n which extend or modify the look of your shell. \n  It's fast, extensible and easy to use. \n"
+	printf " \n oh-my-fish/oh-my-fish provides core infrastructure to allow you to install packages \n which extend or modify the look of your shell. \n  It's fast, extensible and easy to use. \n \n Would you like to install oh-my-fish/oh-my-fish ? [y/n]  \n"
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
@@ -96,7 +78,7 @@ function main() {
 	# oh-my-fish setup. End.
 
 	## fish plugins setup. start.
-	printf " \n Would you like to install fish plugins? [y/n] \n They extend or modify the look of your shell. \n \n"
+	printf " \n fish plugins extend or modify the look of your shell. \n \n Would you like to install fish plugins? [y/n] \n"
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
@@ -109,7 +91,7 @@ function main() {
 	# fish plugins setup. End.
 
 	## bashhub.com setup. start.
-	printf " \n Would you like to install rcaloras/bashhub-client ? [y/n]  \n It is Bash history in the cloud. Indexed and searchable. \n If you prefer open source self-hosted private server, here we go. \n \n https://github.com/nicksherron/bashhub-server \n  \n"
+	printf " \n rcaloras/bashhub-client is Bash history in the cloud. Indexed and searchable. \n If you prefer open source self-hosted private server, here we go. \n \n https://github.com/nicksherron/bashhub-server \n \n Would you like to install rcaloras/bashhub-client ? [y/n]  \n"
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
@@ -122,7 +104,7 @@ function main() {
 	## bashhub.com setup. End.
 
 	## fzf setup. start.
-	printf " \n Would you like to install junegunn/fzf ? [y/n]  \n It's an interactive Unix filter for command-line that can be used with \n any list; files, command history, processes, hostnames, bookmarks, git commits, etc. \n"
+	printf " \n junegunn/fzf is an interactive Unix filter for command-line that can be used with \n any list; files, command history, processes, hostnames, bookmarks, git commits, etc. \n\n Would you like to install junegunn/fzf ? [y/n]  \n"
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
@@ -135,13 +117,29 @@ function main() {
 	# fzf setup. End.
 
 	## thefuck setup. start.
-	printf " \n Would you like to install thefuck? [y/n] \n It is a magnificent app which corrects your previous console command. \n"
+	printf " \n nvbn/thefuck is a magnificent app which corrects your previous console command. \n \n Would you like to install nvbn/thefuck ? [y/n] \n"
 	read answer
 	if [ "$answer" != "${answer#[Yy]}" ]; then
 		thefuck_setup
 	else
 		printf " \n Skipped thefuck setup. \n"
 	fi
+	## thefuck setup. End.
+
+
+	## rupa/z setup. start.
+	printf "rupa/z tracks your most used directories, based on 'frecency'. \n NOTE: rupa_z should be at the end of .zshrc. \n \n Would you like to install rupa/z for bash and zsh ? [y/n]  \n"
+	read answer
+
+	if [ "$answer" != "${answer#[Yy]}" ]; then
+		#echo Yes
+		rupa_z_setup
+	else
+		#echo No
+		printf " \n Skipped rupa/z for bash and zsh installation. \n"
+	fi
+	## rupa/z setup. End.
+
 
 	## clean up before exiting this script.
 	exiting_cleanup
@@ -354,6 +352,9 @@ function oh-my-bash-setup() {
 	# printf " \n exit" >>./install.sh
 	# bash ./install.sh
 	# rm ./install.sh
+	printf " \n \n" >>~/.bashrc
+	printf 'export OSH="$HOME/.oh-my-bash/" ' >>~/.bashrc
+
 	git clone --depth=1 https://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash/
 	curl -fsSLO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/bash_plugins/oh-my-bash_bashrc_default
 	printf " \n" >>~/.bashrc
@@ -499,6 +500,11 @@ function zsh-autocomplete-setup() {
 
 
 function zsh-plugins-setup() {
+	printf " \n \n" >>~/.zshrc
+	printf 'export ZSH="$HOME/.oh-my-zsh/" ' >>~/.zshrc
+	  ## termux on Android does not load ohmyzsh on startup.
+        printf " \n source ~/.zshrc " >>~/.zprofile
+
 	## install marlonrichert/zsh-snap . start
 	printf " \n Setting up marlonrichert/zsh-snap . \n"
 	## copy zsh plugins  default settings to ~/.zshrc
