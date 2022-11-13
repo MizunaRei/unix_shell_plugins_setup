@@ -35,7 +35,7 @@ call `fif` command to search in plain text files and preview them.
 
 ### Key Bindings
 
-| Key(s)                                  | Action                                                                         | `<sub>`Widget`</sub>`       |
+| Key(s)                                  | Action                                                                         | <sub>`Widget`</sub>       |
 | --------------------------------------- | ------------------------------------------------------------------------------ | -------------------------------------- |
 | `<kbd>`Tab`</kbd>`                  | Insert top completion                                                          | `<sub>``</sub>`       |
 | `<kbd>`↓`</kbd>`                   | Cursor down (if able) or completion menu                                       | `<sub>``</sub>` |
