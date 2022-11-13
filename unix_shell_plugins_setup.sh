@@ -483,6 +483,7 @@ function zsh-autocomplete-setup() {
 	znap source zsh-users/zsh-completions
 	znap source zsh-users/zsh-syntax-highlighting
 
+        ## load plugins manually because znap is not compatible with msys2. 
 	source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh 
 	source ~/Git/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 
 	source ~/Git/zsh-completions/zsh-completions.plugin.zsh 
