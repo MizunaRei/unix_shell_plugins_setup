@@ -331,10 +331,11 @@ function oh-my-bash-setup() {
 	printf " \n Setting up ohmybash/oh-my-bash . \n"
 	## oh-my-bash official installer
 	## bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-	curl -kO https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh
-	printf " \n exit" >>./install.sh
-	bash ./install.sh
-	rm ./install.sh
+	# curl -kO https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh
+	## bash will not exit after installing oh-my-bash
+	# printf " \n exit" >>./install.sh
+	# bash ./install.sh
+	# rm ./install.sh
 	printf " \n ohmybash/oh-my-bash was installed. \n"
 	printf " \n Would you like to enable random theme for oh-my-bash ? [y/n] \n"
 	read answer
