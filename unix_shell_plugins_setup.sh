@@ -3,8 +3,8 @@
 ## global variables
 ## save user's current working directory
 export last_working_directory="$PWD"
-export ZSH="$HOME/.oh-my-zsh"
-export OSH="$HOME/.oh-my-bash"
+export ZSH="$HOME/.oh-my-zsh/"
+export OSH="$HOME/.oh-my-bash/"
 
 function main() {
 	## same as main() function in C language
@@ -14,9 +14,9 @@ function main() {
 
 	## write global variables to zshrc
 	printf " \n \n" >>~/.zshrc
-	printf 'export ZSH="$HOME/.oh-my-zsh" ' >>~/.zshrc
+	printf 'export ZSH="$HOME/.oh-my-zsh/" ' >>~/.zshrc
 	printf " \n \n" >>~/.bashrc
-	printf 'export OSH="$HOME/.oh-my-bash" ' >>~/.bashrc
+	printf 'export OSH="$HOME/.oh-my-bash/" ' >>~/.bashrc
 
 ## termux on Android does not load zshrc
 printf " \n source ~/.zshrc " >>~/.zprofile
@@ -284,6 +284,7 @@ function fzf-setup() {
 		cp ./install ./fzf_install
 		printf " \n exit " >>./fzf_install
 		bash ~/.fzf/fzf_install
+                # zsh ~/.fzf/fzf_install
 		rm ./fzf_install
 		printf " \n junegunn/fzf was installed. \n"
 		## install fzf before installing the integration
