@@ -32,6 +32,8 @@ setopt beep notify
 
 source ~/Git/zsh-snap/znap.zsh
 
+export ZSH="$HOME/.oh-my-zsh/" 
+
 ## znap.zsh must be source loaded before znap command.
 ## disable zsh-autocomplete by default
 # znap source marlonrichert/zsh-autocomplete
