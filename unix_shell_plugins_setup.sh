@@ -419,11 +419,12 @@ function ohmyzsh_setup() {
 	## Install ohmyzsh outside zsh-snap may cause compatibility issues between ohmyzsh and zsh-snap.
 	## Use this command to execute desired plugins of ohmyzsh.
 	# znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
-	znap source ohmyzsh/ohmyzsh
 	## splash symbol following directory name
-	mv ~/Git/ohmyzsh/ ~/.oh-my-zsh/
+	# mv -f ~/Git/ohmyzsh/* ~/.oh-my-zsh/*
 	# printf 'znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}' >>~/.zshrc
 	## Path to your oh-my-zsh installation.
+	git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh/
+	 znap source ohmyzsh/ohmyzsh
 	printf " \n \n \n" >>~/.zshrc
 	printf 'export ZSH="$HOME/.oh-my-zsh" ' >>~/.zshrc
 	printf " \n" >>~/.zshrc
@@ -476,6 +477,12 @@ function zsh-autocomplete-setup() {
 	printf " \n \n" >>~/.zshrc
 	cat ./zsh-autocomplete-setup.sh >>~/.zshrc
 	printf " \n \n" >>~/.zshrc
+	
+	 znap source marlonrichert/zsh-autocomplete 
+	 znap source zsh-users/zsh-autosuggestions
+	 znap source zsh-users/zsh-completions
+	 znap source zsh-users/zsh-syntax-highlighting
+
 	## fish-like autocomplete. end.
 }
 
