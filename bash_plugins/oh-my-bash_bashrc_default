@@ -1,6 +1,6 @@
 
 
-export OSH="$HOME/.oh-my-bash"
+export OSH="$HOME/.oh-my-bash/"
 source "$OSH"/oh-my-bash.sh
 OSH_THEME="font"
 
