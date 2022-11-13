@@ -279,7 +279,7 @@ function fzf-setup() {
 		git pull
 		cp ./install ./fzf_install
 		printf " \n exit " >>./fzf_install
-		zsh ./fzf_install
+		bash ~/.fzf/fzf_install
 		rm ./fzf_install
 		printf " \n junegunn/fzf was installed. \n"
 		## install fzf before installing the integration
