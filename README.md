@@ -35,11 +35,11 @@ call `fif` command to search in plain text files and preview them.
 
 ### Key Bindings
 
-| Key(s)                                  | Action                                                                         | `<sub>`[Widget](.zshrc)`</sub>`       |
+| Key(s)                                  | Action                                                                         | `<sub>`Widget`</sub>`       |
 | --------------------------------------- | ------------------------------------------------------------------------------ | -------------------------------------- |
-| `<kbd>`Tab`</kbd>`                  | Insert top completion                                                          | `<sub>complete-word``</sub>`       |
-| `<kbd>`↓`</kbd>`                   | Cursor down (if able) or completion menu                                       | `<sub>down-line-or-select``</sub>` |
-| `<kbd>`↑`</kbd>`                   | Cursor up (if able) or[history menu](#history-menu)                               | `<sub>up-line-or-search``</sub>`   |
+| `<kbd>`Tab`</kbd>`                  | Insert top completion                                                          | `<sub>``</sub>`       |
+| `<kbd>`↓`</kbd>`                   | Cursor down (if able) or completion menu                                       | `<sub>``</sub>` |
+| `<kbd>`↑`</kbd>`                   | Cursor up (if able) or history menu                               | `<sub>``</sub>`   |
 | `<kbd>`Ctrl`</kbd><kbd>`R`</kbd>` | history search by fzf                                                          | `<sub>` `</sub>`                   |
 | `<kbd>`Ctrl`</kbd><kbd>`T`</kbd>` | fuzzy finder by fzf                                                            | `<sub>` `</sub>`                   |
 | `<kbd>`Ctrl`</kbd><kbd>`O`</kbd>` | launch vscode to open the selected file in search result by fif (if available) | `<sub>` `</sub>`                   |
