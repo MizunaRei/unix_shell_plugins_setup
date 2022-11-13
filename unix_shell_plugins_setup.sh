@@ -420,11 +420,15 @@ function ohmyzsh_setup() {
 	if [ "$answer" != "${answer#[Yy]}" ]; then
 		#echo Yes
 		# printf " \n znap prompt ohmyzsh/ohmyzsh random \n" >>~/.zshrc
+		printf " \n" >>~/.zshrc
 		printf 'ZSH_THEME="random" ' >>~/.zshrc
+		printf " \n" >>~/.zshrc
 printf " \n random theme for zsh is enabled. \n"
 	else
 		#echo No
+		printf " \n" >>~/.zshrc
 		printf 'ZSH_THEME="robbyrussell" ' >>~/.zshrc
+		printf " \n" >>~/.zshrc
 		printf " \n default theme robbyrussell of ohmyzsh is enabled. \n"
 	fi
 		## zsh random theme . End.
