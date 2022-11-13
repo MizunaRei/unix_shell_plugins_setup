@@ -41,6 +41,6 @@ call `fif` command to search in plain text files and preview them.
 ### Why do we use these unix shell plugins?
 Zsh is mainly compatible with bash. One of the compatibility issues we know is that bash supports wild char in commands. For example, "apt install compiz*". Zsh does not.
 
-The autosuggestion feature of fish is "friendly interactive". zsh-autocomplete provides more detailed information than fish does. Fizsh is not so feature-rich.
+The autosuggestion feature of fish is "friendly interactive". zsh-autocomplete provides more detailed information than fish does.
 
 Powerlevel10k is faster and more powerful than starship.
