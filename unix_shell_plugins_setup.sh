@@ -431,11 +431,13 @@ function ohmyzsh_setup() {
 	## Path to your oh-my-zsh installation.
 	git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh/
 	 znap source ohmyzsh/ohmyzsh
-	printf " \n \n \n" >>~/.zshrc
-	printf 'export ZSH="$HOME/.oh-my-zsh" ' >>~/.zshrc
-	printf " \n" >>~/.zshrc
-	printf 'source $ZSH/oh-my-zsh.sh ' >>~/.zshrc
-	printf " \n" >>~/.zshrc
+	# printf " \n \n \n" >>~/.zshrc
+	printf "\nexport ZSH=\"\$HOME/.oh-my-zsh/\"\nsource \"\$ZSH/oh-my-zsh.sh\" \n source \"\$ZSH\"/custom/plugins/oh-my-zshrc.sh" >>~/.zshrc
+# 	printf " \n" >>~/.zshrc
+# 	printf 'source $ZSH/oh-my-zsh.sh ' >>~/.zshrc
+	printf "export ZSH=\"\$HOME/.oh-my-zsh/\"\nsource \"\$ZSH/oh-my-zsh.sh\" > "$ZSH"/custom/plugins/oh-my-zshrc.sh"
+## ohmyzsh did not start on termux on Android . we need to source ohmyzsh again.
+# printf " \n" >>~/.zshrc
 		## zsh random theme . start.
 		# printf " \n \n Use this command to use a random theme. \n Or write this command into ~/.zshrc file. \n \n"
 	# printf "        znap prompt ohmyzsh/ohmyzsh random"
