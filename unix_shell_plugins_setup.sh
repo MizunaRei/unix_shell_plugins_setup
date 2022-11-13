@@ -4,12 +4,20 @@
 ## save user's current working directory
 export last_working_directory="$PWD"
 export ZSH="$HOME/.oh-my-zsh"
+export OSH="$HOME/.oh-my-bash"
 
 function main() {
 	## same as main() function in C language
 
 	## go to user home directory for default setup.
 	cd "$HOME"
+
+	## write global variables to zshrc
+	printf " \n \n" >>~/.zshrc
+	printf 'export ZSH="$HOME/.oh-my-zsh" ' >>~/.zshrc
+	printf " \n \n" >>~/.bashrc
+	printf 'export OSH="$HOME/.oh-my-bash" ' >>~/.bashrc
+
 
 	if [ -e "$(which git)" ]; then
 		## greetings
