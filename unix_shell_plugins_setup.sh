@@ -375,8 +375,8 @@ function powerlevel10k-setup() {
 			## perl command output nothing
 			## perl -pe 's/OSH_THEME=\K\d+/random/' ~/.bashrc > ~/.bashrc
 			## theme font is default theme of oh-my-bash
-			mv -f ~/.bashrc ~/.bashrc.old
-			sed '/^ZSH_THEME/s/=.*$/=\"powerlevel10k\/powerlevel10k\"/g' ~/.bashrc.old >~/.bashrc
+			mv -f ~/.zshrc ~/.zshrc.old
+			sed '/^ZSH_THEME/s/=.*$/=\"powerlevel10k\/powerlevel10k\"/g' ~/.zshrc.old >~/.zshrc
 			printf " \n powerlevel10k is enabled as zsh theme. \n"
 		else
 			printf " \n We could not find sed executable file.  \n Please install sed by package manager i.e. Homebrew. \n"
