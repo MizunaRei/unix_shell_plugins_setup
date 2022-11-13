@@ -408,7 +408,7 @@ function ohmyzsh_setup() {
 	printf " \n \n \n " >>~/.zshrc
 	printf 'export ZSH="$HOME/.oh-my-zsh" ' >>~/.zshrc
 	printf " \n " >>~/.zshrc
-	printf " source $ZSH/oh-my-zsh.sh " >>~/.zshrc
+	printf ' source $ZSH/oh-my-zsh.sh ' >>~/.zshrc
 	printf " \n " >>~/.zshrc
 		## zsh random theme . start.
 		# printf " \n \n Use this command to use a random theme. \n Or write this command into ~/.zshrc file. \n \n"
