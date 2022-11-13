@@ -267,8 +267,12 @@ function fzf-setup() {
 	## fzf official installer
 	if [ -e "$(which unzip)" ]; then
 		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-		printf " \n exit " >>~/.fzf/install
-		bash ~/.fzf/install
+		cd ~/.fzf
+		git pull
+		cp ~/.fzf/install ~/fzf_install
+		printf " \n exit " >>~/fzf_install
+		zsh ~/fzf_install
+		rm ~/fzf_install
 		printf " \n junegunn/fzf was installed. \n"
 		## install fzf before installing the integration
 		printf " \n Would you like to install fzf-ripgrep-bat-vscode-integration ? [y/n]  \n You could preview colored search result and open that file in Visual Studio Code . \n"
