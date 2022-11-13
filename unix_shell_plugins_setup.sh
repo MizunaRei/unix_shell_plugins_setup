@@ -155,7 +155,7 @@ function fish_plugins_setup() {
 	## prerious if statement failed.
 	if [ -e "$(which fish)" ]; then
 		## fisher official installer start
-		curl -OL https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/fisher_installation.fish
+		curl -kO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/fisher_installation.fish
 		fish ./fisher_installation.fish
 		## call rm in script itself
 		## rm ./fisher
@@ -199,7 +199,7 @@ function fish_plugins_setup() {
 
 function jethrokuan_z_setup() {
 	printf " \n Setting up jethrokuan/z \n "
-	curl -sOL https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/z_installation.fish
+	curl -kO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/z_installation.fish
 	fish ./z_installation.fish
 	rm ./z_installation.fish
 	printf " \n jethrokuan/z was installed. \n "
@@ -207,7 +207,7 @@ function jethrokuan_z_setup() {
 
 function autopair_fish_setup() {
 	printf " \n Setting up jorgebucaran/autopair.fish \n "
-	curl -sOL https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/autopair_installation.fish
+	curl -kO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/autopair_installation.fish
 	fish ./autopair_installation.fish
 	rm ./autopair_installation.fish
 	printf " \n jorgebucaran/autopair.fish was installed. \n "
@@ -226,8 +226,8 @@ function thefuck_setup() {
 function bashhub-client-setup() {
 	if [ -e "$(which python)" ]; then
 		printf " \n Setting up rcaloras/bashhub-client . \n "
-		curl -sOL https://bashhub.com/setup
-		echo -e ' \n exit ' >>./setup
+		curl -kO https://bashhub.com/setup
+		printf " \n exit " >>./setup
 		zsh ./setup
 		rm ./setup
 		printf " \n rcaloras/bashhub-client was installed. \n "
@@ -241,7 +241,7 @@ function fzf-ripgrep-bat-vscode-integration-setup() {
 		if [ -e "$(which awk)" ]; then
 			if [ -e "$(which bat)" ]; then
 				printf " \n NOTE: Press Control+O to open file in VSCode on previewing screen. \n "
-				curl -o fif.sh -sL https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/plugins/fif.sh
+				curl -kO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/plugins/fif.sh
 				printf " \n \n " >>~/.zshrc
 				cat fif.sh >>~/.zshrc
 				printf " \n \n " >>~/.zshrc
@@ -266,7 +266,7 @@ function fzf-setup() {
 	## fzf official installer
 	if [ -e "$(which unzip)" ]; then
 		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-		echo -e ' \n exit ' >>~/.fzf/install
+		printf " \n exit " >>~/.fzf/install
 		bash ~/.fzf/install
 		printf " \n junegunn/fzf was installed. \n "
 		## install fzf before installing the integration
@@ -291,7 +291,7 @@ function oh-my-fish-setup() {
 	if [ -e "$(which fish)" ]; then
 		## oh-my-fish official installer start
 		printf " \n Please press Y to install over existing installation. \n "
-		curl -OL https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install
+		curl -kO https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install
 		## make sure fish exit and go back to zsh shell after installing oh-my-fish
 		printf " \n exit" >>./install
 		fish ./install
@@ -331,22 +331,22 @@ function oh-my-bash-setup() {
 	printf " \n Setting up ohmybash/oh-my-bash . \n "
 	## oh-my-bash official installer
 	## bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-	curl -sOL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh
-	echo -e ' \n exit' >>./install.sh
+	curl -kO https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh
+	printf " \n exit" >>./install.sh
 	bash ./install.sh
 	rm ./install.sh
 	printf " \n ohmybash/oh-my-bash was installed. \n "
 	printf " \n Would you like to enable random theme for oh-my-bash ? [y/n] \n "
 	read answer
 	if [ "$answer" != "${answer#[Yy]}" ]; then
-		if [ -e "$(which perl)" ]; then
+		if [ -e "$(which sed)" ]; then
 			## perl command output nothing
 			## perl -pe 's/OSH_THEME=\K\d+/random/' ~/.bashrc > ~/.bashrc
 			## theme font is default theme of oh-my-bash
 			mv -f ~/.bashrc ~/.bashrc.old
 			sed '/^OSH_THEME/s/=.*$/=\"random\"/g' ~/.bashrc.old >~/.bashrc
 		else
-			printf " \n We could not find perl executable file.  \n Please install perl by package manager i.e. Homebrew. \n "
+			printf " \n We could not find sed executable file.  \n Please install sed by package manager i.e. Homebrew. \n "
 		fi
 	else
 		printf " \n The default theme of oh-my-bash is enabled. \n "
@@ -357,43 +357,74 @@ function powerlevel10k-setup() {
 	printf " \n Setting up romkatv/powerlevel10k . \n "
 	## install powerlevel10k into ohmyzsh. start
 	## Install powerlevel10k into ohmyzsh so it can be used as a random theme.
-	znap source romkatv/powerlevel10k
+	# znap source romkatv/powerlevel10k
 	## execute znap source romkatv/powerlevel10k command on zsh startup will make powerlevel10k be the only available theme.
 	## echo 'znap source romkatv/powerlevel10k' >>~/.zshrc
-	cd ~/zsh-snap
-	mv powerlevel10k ohmyzsh/custom/themes/
-	cd ~/zsh-snap
-	ln -s ohmyzsh/custom/themes/powerlevel10k/
-	cd ~
-	printf " \n \n Use this command to use powerlevel10k theme. \n Or write this command into ~/.zshrc file. \n \n"
-	printf "        znap prompt ohmyzsh/ohmyzsh powerlevel10k"
-	printf " \n romkatv/powerlevel10k was installed. \n "
+	# cd ~/zsh-snap
+	# mv powerlevel10k ohmyzsh/custom/themes/
+	# cd ~/zsh-snap
+	# ln -s ohmyzsh/custom/themes/powerlevel10k/
+	# cd ~
+	# printf " \n \n Use this command to use powerlevel10k theme. \n Or write this command into ~/.zshrc file. \n \n"
+	# printf "        znap prompt ohmyzsh/ohmyzsh powerlevel10k"
+	# printf " \n romkatv/powerlevel10k was installed. \n "
+	
+	## powerlevel10k official installer
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+	if [ -e "$(which sed)" ]; then
+			## perl command output nothing
+			## perl -pe 's/OSH_THEME=\K\d+/random/' ~/.bashrc > ~/.bashrc
+			## theme font is default theme of oh-my-bash
+			mv -f ~/.bashrc ~/.bashrc.old
+			sed '/^ZSH_THEME/s/=.*$/=\"powerlevel10k\/powerlevel10k\"/g' ~/.bashrc.old >~/.bashrc
+			printf " \n powerlevel10k is enabled as zsh theme. \n "
+		else
+			printf " \n We could not find sed executable file.  \n Please install sed by package manager i.e. Homebrew. \n "
+		fi
 	## install powerlevel10k into ohmyzsh. End
 }
+
+
+function ohmyzsh_setup_by_ohmyzsh_offical_installer(){
+	printf " \n Setting up ohmyzsh/ohmyzsh. \n "
+	 curl -kO https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+	## zsh will not exit after installing ohmyzsh, therefore plugins_setup will be interupted.
+	# printf " \n exit" >>./install.sh
+	 zsh ./install.sh
+	 rm ./install.sh
+}
+
 
 function ohmyzsh_setup() {
 	printf " \n Setting up ohmyzsh/ohmyzsh. \n "
 	## install ohmyzsh via zsh-snap. start
 	## Install ohmyzsh outside zsh-snap may cause compatibility issues between ohmyzsh and zsh-snap.
 	## Use this command to execute desired plugins of ohmyzsh.
-	znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
-	printf 'znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}' >>~/.zshrc
+	# znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
+	znap source ohmyzsh/ohmyzsh
+	mv ~/Git/ohmyzsh ~/.oh-my-zsh
+	# printf 'znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}' >>~/.zshrc
 	## Path to your oh-my-zsh installation.
-	printf 'export ZSH="$HOME/zsh-snap/ohmyzsh" ' >>~/.zshrc
-		
+	printf " \n \n \n " >>~/.zshrc
+	printf 'export ZSH="$HOME/.oh-my-zsh" ' >>~/.zshrc
+	printf " \n " >>~/.zshrc
+	printf " source $ZSH/oh-my-zsh.sh " >>~/.zshrc
+	printf " \n " >>~/.zshrc
 		## zsh random theme . start.
-		printf " \n \n Use this command to use a random theme. \n Or write this command into ~/.zshrc file. \n \n"
-	printf "        znap prompt ohmyzsh/ohmyzsh random"
+		# printf " \n \n Use this command to use a random theme. \n Or write this command into ~/.zshrc file. \n \n"
+	# printf "        znap prompt ohmyzsh/ohmyzsh random"
 	printf " \n Would you like to enable random theme for zsh ? [y/n] \n "
 	read answer
 
 	if [ "$answer" != "${answer#[Yy]}" ]; then
 		#echo Yes
-		printf " \n znap prompt ohmyzsh/ohmyzsh random \n " >>~/.zshrc
-echo " \n random theme for zsh is enabled. \n "
+		# printf " \n znap prompt ohmyzsh/ohmyzsh random \n " >>~/.zshrc
+		printf 'ZSH_THEME="random" ' >>~/.zshrc
+printf " \n random theme for zsh is enabled. \n "
 	else
 		#echo No
-		printf " \n default theme of ohmyzsh is enabled. \n "
+		printf 'ZSH_THEME="robbyrussell" ' >>~/.zshrc
+		printf " \n default theme robbyrussell of ohmyzsh is enabled. \n "
 	fi
 		## zsh random theme . End.
 
@@ -415,11 +446,22 @@ echo " \n random theme for zsh is enabled. \n "
 	## install powerlevel10k. end.
 }
 
+
+function zsh-autocomplete-setup() {
+	## fish-like autocomplete by these 3 plugins . start.
+	curl -kO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zsh-autocomplete-setup.sh
+	printf " \n \n " >>~/.zshrc
+	cat ./zsh-autocomplete-setup.sh >>~/.zshrc
+	printf " \n \n " >>~/.zshrc
+	## fish-like autocomplete. end.
+}
+
+
 function zsh-plugins-setup() {
 	## install marlonrichert/zsh-snap . start
 	printf " \n Setting up marlonrichert/zsh-snap . \n "
 	## copy zsh plugins  default settings to ~/.zshrc
-	curl -o zshrc_default -sL https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zshrc_default
+	curl -kO  https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zshrc_default
 	printf " \n \n " >>~/.zshrc
 	cat zshrc_default >>~/.zshrc
 	printf " \n \n " >>~/.zshrc
@@ -427,11 +469,12 @@ function zsh-plugins-setup() {
 
 	## zsh-snap official installer
 	printf " \n \n Please keep the default installation directory unless you know what you are doing. \n \n"
-	git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/zsh-snap/zsh-snap
-	chmod +x ~/zsh-snap/zsh-snap/znap.zsh
-	source ~/zsh-snap/zsh-snap/znap.zsh
+	## install znap in official default path
+	git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
+	chmod +x ~/Git/zsh-snap/znap.zsh
+	source ~/Git/zsh-snap/znap.zsh
 	## use zshrc-default instead of echo >> zshrc . echo does not support text format well.
-	## echo 'source ~/zsh-snap/zsh-snap/znap.zsh' >> ~/.zshrc
+	## echo 'source ~/Git/zsh-snap/znap.zsh' >> ~/.zshrc
 	## zshrc-default should not includes zsh-autocomplete.
 	printf " \n marlonrichert/zsh-snap was installed. \n "
 	## install marlonrichert/zsh-snap . End
@@ -464,14 +507,9 @@ function zsh-plugins-setup() {
 	# ohmyzsh setup. ENd.
 }
 
-function zsh-autocomplete-setup() {
-	printf " \n \n \n  # enable zsh-autocomplete by zsh-snap " >>~/.zshrc
-	printf " znap source marlonrichert/zsh-autocomplete " >>~/.zshrc
-	printf " \n \n " >>~/.zshrc
-}
 
 function exit_succeeded_cleanup() {
-	echo "Setup completed. \n If you like this script, please give it a star. \n "
+	printf "Setup completed. \n If you like this script, please give it a star. \n "
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit 0
@@ -485,7 +523,7 @@ function exiting_cleanup() {
 }
 
 function exit_canceled_cleanup() {
-	echo " \n Setup canceled. Your system was not modified.  \n If you like this script, please give it a star. \n "
+	printf " \n Setup canceled. Your system was not modified.  \n If you like this script, please give it a star. \n "
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit 1

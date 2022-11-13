@@ -13,28 +13,32 @@
 
 ## autoload -Uz compinit
 ## compinit
-# End of lines added by compinstall
+## End of lines added by compinstall
 
 
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
+## Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=9000
+SAVEHIST=9000
 setopt beep notify
-# End of lines configured by zsh-newuser-install
+## End of lines configured by zsh-newuser-install
 
 
-## enable znap plugin manager
-source ~/zsh-snap/zsh-snap/znap.zsh
+## enable znap plugin manager using official installer.
+# source ~/Git/zsh-snap/znap.zsh
+[[ -f ~/Git/zsh-snap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
 
+source ~/Git/zsh-snap/znap.zsh
 
 ## znap.zsh must be source loaded before znap command.
-## enable zsh-autocomplete
-znap source marlonrichert/zsh-autocomplete
+## disable zsh-autocomplete by default
+# znap source marlonrichert/zsh-autocomplete
 
 
-# disable plugins below by default. 
-## znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
-## export ZSH="$HOME/zsh-snap/ohmyzsh" 
+## disable plugins below by default. ohmyzsh installed by znap.
+# znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
+# export ZSH="$HOME/Git/ohmyzsh" 
 ## 
-## znap prompt ohmyzsh/ohmyzsh random
+# znap prompt ohmyzsh/ohmyzsh random
