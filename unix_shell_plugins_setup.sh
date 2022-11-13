@@ -478,10 +478,16 @@ function zsh-autocomplete-setup() {
 	cat ./zsh-autocomplete-setup.sh >>~/.zshrc
 	printf " \n \n" >>~/.zshrc
 	
-	 znap source marlonrichert/zsh-autocomplete 
-	 znap source zsh-users/zsh-autosuggestions
-	 znap source zsh-users/zsh-completions
-	 znap source zsh-users/zsh-syntax-highlighting
+	znap source marlonrichert/zsh-autocomplete 
+	znap source zsh-users/zsh-autosuggestions
+	znap source zsh-users/zsh-completions
+	znap source zsh-users/zsh-syntax-highlighting
+
+	source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh 
+	source ~/Git/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 
+	source ~/Git/zsh-completions/zsh-completions.plugin.zsh 
+	source ~/Git/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+
 
 	## fish-like autocomplete. end.
 }
