@@ -352,13 +352,19 @@ function oh-my-bash-setup() {
 	# printf " \n exit" >>./install.sh
 	# bash ./install.sh
 	# rm ./install.sh
-	printf " \n \n" >>~/.bashrc
-	printf 'export OSH="$HOME/.oh-my-bash/" ' >>~/.bashrc
+	# printf " \n \n" >>~/.bashrc
+	printf "\nexport OSH=\"\$HOME/.oh-my-bash/\" " >>~/.bashrc
 
 	git clone --depth=1 https://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash/
 	curl -fsSLO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/bash_plugins/oh-my-bash_bashrc_default
 	printf " \n" >>~/.bashrc
 	cat oh-my-bash_bashrc_default >>~/.bashrc
+# printf "\nexport ZSH=\"\$HOME/.oh-my-zsh/\"\nsource \"\$ZSH/oh-my-zsh.sh\" \nsource \"\$ZSH/custom/plugins/oh-my-zshrc.sh\"" >>~/.zshrc
+# 	printf " \n" >>~/.zshrc
+# 	printf 'source $ZSH/oh-my-zsh.sh ' >>~/.zshrc
+printf "\nsource \"\$OSH/custom/plugins/oh-my-bashrc.sh\"" >>~/.bashrc
+	printf "export OSH=\"\$HOME/.oh-my-bash/\"\nsource \"\$OSH/oh-my-bash.sh\"" > "$OSH/custom/plugins/oh-my-bashrc.sh"
+## ohmyzsh did not start on termux on Android . we need to source ohmyzsh again.
 	printf " \n ohmybash/oh-my-bash was installed. \n"
 	printf " \n Would you like to enable random theme for oh-my-bash ? [y/n] \n"
 	read answer
