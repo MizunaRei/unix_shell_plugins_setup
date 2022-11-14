@@ -24,7 +24,7 @@
 ### Installation
 
 ```
-curl -fsSLO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/unix_shell_plugins_setup.sh  &&  zsh unix_shell_plugins_setup.sh
+curl -sSLO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/unix_shell_plugins_setup.sh  &&  zsh unix_shell_plugins_setup.sh
 ```
 
 ### Usage
