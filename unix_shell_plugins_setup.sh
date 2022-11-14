@@ -6,6 +6,7 @@ export last_working_directory="$PWD"
 export ZSH="$HOME/.oh-my-zsh/"
 export OSH="$HOME/.oh-my-bash/"
 export OMF_PATH="$HOME/.local/share/omf/"
+export OMF_CONFIG="$HOME/.config/omf/"
 
 function main() {
 	## same as main() function in C language
@@ -26,6 +27,21 @@ function main() {
 		exit 1
 	fi
 
+	
+	## install oh-my-zsh firstly before other plugins. ohmyzsh overwrites zshrc. start
+	# ohmyzsh setup. start.
+	printf " \n ohmyzsh/ohmyzsh is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n\n Would you like to install ohmyzsh/ohmyzsh ? [y/n]  \n"
+	read answer
+
+	if [ "$answer" != "${answer#[Yy]}" ]; then
+		#echo Yes
+		ohmyzsh_setup
+	else
+		#echo No
+		printf " \n Skipped ohmyzsh/ohmyzsh installation. \n"
+	fi
+	# ohmyzsh setup. ENd.
+	
 	## zsh-plugins setup. start.
 	printf " \n zsh plugins make shell look pretty and help you work easier. \n \n Would you like to install zsh plugins ? [y/n] \n"
 	read answer
@@ -303,10 +319,8 @@ function fzf-setup() {
 
 function oh-my-fish-setup() {
 	printf "\n Setting up oh-my-fish/oh-my-fish . \n"
-	## if [ "$(which fish)"=1 ]
-	## prerious if statement failed.
+	## oh-my-fish official installer start
 	if [ -e "$(which fish)" ]; then
-		## oh-my-fish official installer start
 		printf " \n Please press Y to install over existing installation. \n"
 		# curl -sSLO https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install
 		## make sure fish exit and go back to zsh shell after installing oh-my-fish
@@ -318,6 +332,8 @@ function oh-my-fish-setup() {
 	else
 		printf " \n We could not find fish shell executable file.  \n Please install fish shell by package manager i.e. Homebrew. \n"
 	fi
+	## oh-my-fish official installer . end.
+
 	## random_omf_theme .start.
 	printf " \n Would you like to enable random theme for oh-my-fish ? [y/n] \n"
 	read answer
@@ -329,7 +345,6 @@ function oh-my-fish-setup() {
 		printf " \n The default theme of oh-my-fish is enabled. \n"
 	fi
 	## random_omf_theme . End.
-
 }
 
 function ble-sh-setup() {
@@ -621,19 +636,7 @@ function zsh-plugins-setup() {
 	fi
 	## marlonrichert/zsh-autocomplete setup . end .
 
-	## install oh-my-zsh . start
-	# ohmyzsh setup. start.
-	printf " \n ohmyzsh/ohmyzsh is a delightful community-driven framework for managing your zsh configuration.  \n Includes 300+ optional plugins,140+ themes. \n\n Would you like to install ohmyzsh/ohmyzsh ? [y/n]  \n"
-	read answer
-
-	if [ "$answer" != "${answer#[Yy]}" ]; then
-		#echo Yes
-		ohmyzsh_setup
-	else
-		#echo No
-		printf " \n Skipped ohmyzsh/ohmyzsh installation. \n"
-	fi
-	# ohmyzsh setup. ENd.
+	
 }
 
 
