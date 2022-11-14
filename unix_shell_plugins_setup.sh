@@ -248,7 +248,7 @@ function bashhub-client-setup() {
 }
 
 function fzf-ripgrep-bat-vscode-integration-setup() {
-	if [ -e "$(which ripgrep)" ]; then
+	if [ -e "$(which rg)" ]; then
 		if [ -e "$(which awk)" ]; then
 			if [ -e "$(which bat)" ]; then
 				printf " \n NOTE: Press Control+O to open file in VSCode on previewing screen. \n"
