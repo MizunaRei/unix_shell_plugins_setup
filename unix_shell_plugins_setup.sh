@@ -576,6 +576,7 @@ printf " \n random theme for zsh is enabled. \n"
 
 function zsh-autocomplete-setup() {
 	## fish-like autocomplete by these 3 plugins . start.
+	printf "\nSetting up fish-like autocompletion plugins for zsh.\n"
 	curl -sSLO https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/zsh-autocomplete-setup.sh
 	# printf " \n \n" >>~/.zshrc
 	cat ./zsh-autocomplete-setup.sh >>~/.zshrc
@@ -591,7 +592,7 @@ function zsh-autocomplete-setup() {
 	source ~/Git/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 
 	source ~/Git/zsh-completions/zsh-completions.plugin.zsh 
 	source ~/Git/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-
+	printf "fish-like autocompletion plugins for zsh are installed.\n"
 	## fish-like autocomplete. end.
 }
 
