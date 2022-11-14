@@ -5,6 +5,7 @@
 export last_working_directory="$PWD"
 export ZSH="$HOME/.oh-my-zsh/"
 export OSH="$HOME/.oh-my-bash/"
+export OMF_PATH="$HOME/.local/share/omf/"
 
 function main() {
 	## same as main() function in C language
@@ -307,15 +308,28 @@ function oh-my-fish-setup() {
 	if [ -e "$(which fish)" ]; then
 		## oh-my-fish official installer start
 		printf " \n Please press Y to install over existing installation. \n"
-		curl -fsSLO https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install
+		# curl -fsSLO https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install
 		## make sure fish exit and go back to zsh shell after installing oh-my-fish
-		printf " \n exit" >>./install
+		# printf " \n exit" >>./install
+		curl -O https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/fish_plugins/install
 		fish ./install
 		rm ./install
 		printf " \n oh-my-fish/oh-my-fish was installed. \n"
 	else
 		printf " \n We could not find fish shell executable file.  \n Please install fish shell by package manager i.e. Homebrew. \n"
 	fi
+	## random_omf_theme .start.
+	printf " \n Would you like to enable random theme for oh-my-fish ? [y/n] \n"
+	read answer
+	if [ "$answer" != "${answer#[Yy]}" ]; then
+		git clone --depth=1 https://github.com/MilkyMAISHIRANUI/random_omf_theme "$OMF_PATH/themes/random_omf_theme"
+		echo "random_omf_theme" > "$OMF_CONFIG/theme"
+		printf " \n random themes of oh-my-fish are enabled. \n"
+	else
+		printf " \n The default theme of oh-my-fish is enabled. \n"
+	fi
+	## random_omf_theme . End.
+
 }
 
 function ble-sh-setup() {
@@ -343,7 +357,31 @@ function ble-sh-setup() {
 	fi
 }
 
-function oh-my-bash-setup() {
+
+function oh-my-bash-setup(){
+	printf " \n Setting up ohmybash/oh-my-bash . \n"
+	curl -O https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/bash_plugins/install.sh
+	bash ./install.sh
+	rm ./install.sh
+	printf " \n ohmybash/oh-my-bash was installed. \n"
+	printf " \n Would you like to enable random theme for oh-my-bash ? [y/n] \n"
+	read answer
+	if [ "$answer" != "${answer#[Yy]}" ]; then
+		if [ -e "$(which sed)" ]; then
+			## perl command output nothing
+			## perl -pe 's/OSH_THEME=\K\d+/random/' ~/.bashrc > ~/.bashrc
+			## theme font is default theme of oh-my-bash
+			mv -f ~/.bashrc ~/.bashrc.old
+			sed '/^OSH_THEME/s/=.*$/=\"random\"/g' ~/.bashrc.old >~/.bashrc
+		else
+			printf " \n We could not find sed executable file.  \n Please install sed by package manager i.e. Homebrew. \n"
+		fi
+	else
+		printf " \n The default theme of oh-my-bash is enabled. \n"
+	fi
+}
+
+function oh-my-bash-setup_manually() {
 	printf " \n Setting up ohmybash/oh-my-bash . \n"
 	## oh-my-bash official installer
 	## bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
@@ -400,7 +438,7 @@ function powerlevel10k-setup() {
 	# printf " \n romkatv/powerlevel10k was installed. \n"
 	
 	## powerlevel10k official installer
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH"/custom/themes/powerlevel10k
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH/custom/themes/powerlevel10k"
 	if [ -e "$(which sed)" ]; then
 			## perl command output nothing
 			## perl -pe 's/OSH_THEME=\K\d+/random/' ~/.bashrc > ~/.bashrc
@@ -415,17 +453,53 @@ function powerlevel10k-setup() {
 }
 
 
-function ohmyzsh_setup_by_ohmyzsh_offical_installer(){
+function ohmyzsh_setup(){
 	printf " \n Setting up ohmyzsh/ohmyzsh. \n"
-	 curl -fsSLO https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+	 # curl -fsSLO https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 	## zsh will not exit after installing ohmyzsh, therefore plugins_setup will be interupted.
 	# printf " \n exit" >>./install.sh
+	 curl -O https://github.com/MilkyMAISHIRANUI/unix_shell_plugins_setup/raw/main/zsh_plugins/install.sh
 	 zsh ./install.sh
 	 rm ./install.sh
+	 printf " \n Would you like to enable random theme for zsh ? [y/n] \n"
+	read answer
+
+	if [ "$answer" != "${answer#[Yy]}" ]; then
+		#echo Yes
+		# printf " \n znap prompt ohmyzsh/ohmyzsh random \n" >>~/.zshrc
+		printf " \n" >>~/.zshrc
+		printf 'ZSH_THEME="random" ' >>~/.zshrc
+		printf " \n" >>~/.zshrc
+printf " \n random theme for zsh is enabled. \n"
+	else
+		#echo No
+		printf " \n" >>~/.zshrc
+		printf 'ZSH_THEME="robbyrussell" ' >>~/.zshrc
+		printf " \n" >>~/.zshrc
+		printf " \n default theme robbyrussell of ohmyzsh is enabled. \n"
+	fi
+		## zsh random theme . End.
+
+	printf " \n ohmyzsh/ohmyzsh was installed. \n"
+	## install ohmyzsh via zsh-snap. End
+
+	# powerlevel10k setup. start.
+	printf " \n romkatv/powerlevel10k is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience. \n\n Would you like to install romkatv/powerlevel10k as ohmyzsh theme ? [y/n]  \n"
+	read answer
+
+	if [ "$answer" != "${answer#[Yy]}" ]; then
+		#echo Yes
+		powerlevel10k-setup
+	else
+		#echo No
+		printf " \n Skipped romkatv/powerlevel10k installation. \n"
+	fi
+	# powerlevel10k setup. End.
+	## install powerlevel10k. end.
 }
 
 
-function ohmyzsh_setup() {
+function ohmyzsh_setup_manually() {
 	printf " \n Setting up ohmyzsh/ohmyzsh. \n"
 	## install ohmyzsh via zsh-snap. start
 	## Install ohmyzsh outside zsh-snap may cause compatibility issues between ohmyzsh and zsh-snap.
@@ -565,6 +639,7 @@ function zsh-plugins-setup() {
 
 function exit_succeeded_cleanup() {
 	printf "Setup completed. \n If you like this script, please give it a star. \n"
+	cd "$last_working_directory"
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit 0
@@ -572,6 +647,7 @@ function exit_succeeded_cleanup() {
 
 function exiting_cleanup() {
 	printf " \n Setup completed. \n  Open a new terminal window to enjoy it.  \n If unix shell went wrong, please follow this guide. \n  \n https://github.com/marlonrichert/zsh-autocomplete#manual-installation   \n \n You may try to rename or delete dotfiles such as ~/.zshrc , ~/.zprofile , ~/.p10k.zsh , ~/.bashrc , ~/.bash_profile, ~/.config/fish/conf.d , and the folder of plugins ( usually at ~/ ) . \n Then execute this script again.  \n \n  If you like this script, please give it a star on its home page. \n \n"
+	cd "$last_working_directory"
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit 0
@@ -579,6 +655,7 @@ function exiting_cleanup() {
 
 function exit_canceled_cleanup() {
 	printf " \n Setup canceled. Your system was not modified.  \n If you like this script, please give it a star. \n"
+	cd "$last_working_directory"
 	rm ./unix_shell_plugins_setup.sh
 	cd "$last_working_directory"
 	exit 1
