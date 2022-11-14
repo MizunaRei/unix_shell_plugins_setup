@@ -340,6 +340,7 @@ function oh-my-fish-setup() {
 	if [ "$answer" != "${answer#[Yy]}" ]; then
 		git clone --depth=1 https://github.com/MilkyMAISHIRANUI/random_omf_theme "$OMF_PATH/themes/random_omf_theme"
 		echo "random_omf_theme" > "$OMF_CONFIG/theme"
+		mv -f ~/.config/fish/functions/fish_prompt.fish  ~/.config/fish/functions/fish_prompt.fish.old
 		printf " \n random themes of oh-my-fish are enabled. \n"
 	else
 		printf " \n The default theme of oh-my-fish is enabled. \n"
@@ -592,7 +593,7 @@ function zsh-autocomplete-setup() {
 	source ~/Git/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 
 	source ~/Git/zsh-completions/zsh-completions.plugin.zsh 
 	source ~/Git/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-	printf "fish-like autocompletion plugins for zsh are installed.\n"
+	printf "\nfish-like autocompletion plugins for zsh are installed.\n"
 	## fish-like autocomplete. end.
 }
 
