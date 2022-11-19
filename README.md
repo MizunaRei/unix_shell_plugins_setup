@@ -12,6 +12,7 @@
     https://github.com/jorgebucaran/fisher
     https://github.com/jorgebucaran/autopair.fish
     https://github.com/ajeetdsouza/zoxide
+    https://github.com/ogham/exa
     https://github.com/nvbn/thefuck
     https://github.com/rcaloras/bashhub-client
     https://github.com/nicksherron/bashhub-server
