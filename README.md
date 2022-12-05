@@ -14,8 +14,7 @@
     https://github.com/ajeetdsouza/zoxide
     https://github.com/ogham/exa
     https://github.com/nvbn/thefuck
-    https://github.com/rcaloras/bashhub-client
-    https://github.com/nicksherron/bashhub-server
+    https://github.com/ellie/atuin
     https://github.com/junegunn/fzf
     https://github.com/BurntSushi/ripgrep
     https://github.com/sharkdp/bat
